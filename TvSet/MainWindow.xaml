@@ -9,8 +9,67 @@
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Frame 5.png"/>
-             
         </Grid.Background>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="2.1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="27"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="53"/>
+                <RowDefinition Height="240"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="32"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="114"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Grid.Column="1" HorizontalAlignment="Center" Height="27" Margin="0,3,0,0" Grid.Row="6" VerticalAlignment="Top" Width="49">
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Buttons/CloseB.png"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Buttons/AddB.png"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="68,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Buttons/EditB.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
 </Window>
