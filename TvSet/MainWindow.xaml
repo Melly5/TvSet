@@ -8,7 +8,7 @@
         Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Frame 5.png"/>
+            <ImageBrush ImageSource="/Images/Back/Back.png"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.2*"/>
@@ -57,19 +57,21 @@
             </Grid.RowDefinitions>
             <Button Grid.Column="1" HorizontalAlignment="Center" Height="27" Margin="0,3,0,0" Grid.Row="6" VerticalAlignment="Top" Width="49">
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Buttons/CloseB.png"/>
+                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
                 </Button.Background>
             </Button>
             <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Buttons/AddB.png"/>
+                    <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
                 </Button.Background>
             </Button>
             <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="68,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Buttons/EditB.png"/>
+                    <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
                 </Button.Background>
             </Button>
+            <Slider Name="Temperature" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="82" Foreground="White" Height="15" Margin="23,5,0,0"/>
+            <Slider Name="Humidity" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="83"/>
         </Grid>
     </Grid>
 </Window>

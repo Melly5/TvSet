@@ -95,22 +95,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Frame 5.png" />
+    <Folder Include="Images\Birds\" />
+    <Folder Include="Images\Trees\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Birds\" />
-    <Folder Include="Trees\" />
+    <Resource Include="Images\Animals\4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Animals\4.png" />
+    <Resource Include="Images\Buttons\AddB.png" />
+    <Resource Include="Images\Buttons\CloseB.png" />
+    <Resource Include="Images\Buttons\EditB.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Main.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Buttons\AddB.png" />
-    <Resource Include="Buttons\CloseB.png" />
-    <Resource Include="Buttons\EditB.png" />
+    <Resource Include="Images\Back\Back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
