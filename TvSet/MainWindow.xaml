@@ -22,21 +22,24 @@
                 <ColumnDefinition Width="27"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="180"/>
-                <RowDefinition Height="140"/>
-                <RowDefinition />
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="16*" />
             </Grid.RowDefinitions>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="3.544"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="183*"/>
+                <ColumnDefinition Width="183*"/>
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="53"/>
-                <RowDefinition Height="240"/>
-                <RowDefinition />
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="116*"/>
+                <RowDefinition Height="124*"/>
+                <RowDefinition Height="91*" />
             </Grid.RowDefinitions>
         </Grid>
         <Grid Grid.Column="2">
@@ -46,14 +49,14 @@
                 <ColumnDefinition Width="32"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="55"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="154"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="27*"/>
+                <RowDefinition Height="154*"/>
 
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition />
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="68*" />
             </Grid.RowDefinitions>
             <Button Grid.Column="1" HorizontalAlignment="Center" Height="27" Margin="0,3,0,0" Grid.Row="5" VerticalAlignment="Top" Width="49">
                 <Button.Background>
@@ -72,6 +75,20 @@
             </Button>
             <Slider Name="Temperature" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="82" Height="15" Margin="24,6,0,0"/>
             <Slider Name="Humidity" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Width="82" Height="15" Margin="24,-3,0,0"/>
+            <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,12,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="116" Fill="Black" Grid.RowSpan="2"/>
+            <TabControl  Grid.Column="1" Grid.Row="3" BorderBrush="{x:Null}">
+                <TabItem Header="TabItem" Background="{x:Null}">
+                    <Grid/>
+                </TabItem>
+                <TabItem Header="TabItem" Background="{x:Null}">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="27*"/>
+                            <ColumnDefinition Width="101*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Grid>
 </Window>
