@@ -41,6 +41,7 @@
                 <RowDefinition Height="124*"/>
                 <RowDefinition Height="91*" />
             </Grid.RowDefinitions>
+            <Canvas Name="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="220" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="346"/>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -76,16 +77,56 @@
             <Slider Name="Temperature" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="82" Height="15" Margin="24,6,0,0"/>
             <Slider Name="Humidity" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Width="82" Height="15" Margin="24,-3,0,0"/>
             <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,12,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="116" Fill="Black" Grid.RowSpan="2"/>
-            <TabControl  Grid.Column="1" Grid.Row="3" BorderBrush="{x:Null}">
-                <TabItem Header="TabItem" Background="{x:Null}">
-                    <Grid/>
-                </TabItem>
-                <TabItem Header="TabItem" Background="{x:Null}">
-                    <Grid Background="#FFE5E5E5">
+            <TabControl  Grid.Column="1" Grid.Row="2" BorderBrush="{x:Null}" Margin="5,27,10,0" Grid.RowSpan="2" Background="#FF8A6D54">
+                <TabItem Header="+" Width="40">
+                    <TabItem.Background>
+                        <ImageBrush  ImageSource="/Images/Buttons/AddB.png"/>
+                    </TabItem.Background>
+                    <Grid x:Name="Tree" Background="#FFC3A58A" HorizontalAlignment="Right" Width="113">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="27*"/>
-                            <ColumnDefinition Width="101*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Добавить" FontSize="9"  HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Column="1" Height="20"/>
+                        <Button x:Name="Tree1" Content="Tree"  Height="22" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,20,7,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="Animal" Content="Tree"  Height="22" Click ="Click_a" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,47,7,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                            </Button.Background>
+                        </Button>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Edit" Width="40" BorderBrush="#FFB79A80" >
+                    <TabItem.Background>
+                        <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
+                    </TabItem.Background>
+                    <Grid Background="#FFC4A78C" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="97*"/>
+                            <RowDefinition Height="29*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="EditInfo" FontSize="9" Margin="2,10,127,17" Width="125" Height="70">
+                            <Label.Content>
+                                <TextBlock TextWrapping="Wrap" Height="60" Width="99" >Нажмите на объект двaжды и перемещайте с помощью клавиш клавиатуры.</TextBlock>
+                            </Label.Content>
+                        </Label>
+                        <Button Content="Удалить"  HorizontalAlignment="Left" Height="29" Margin="30,89,0,0" VerticalAlignment="Top" Width="53" Grid.RowSpan="2">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                            </Button.Background>
+                        </Button>
+
                     </Grid>
                 </TabItem>
             </TabControl>
