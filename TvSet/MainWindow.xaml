@@ -101,6 +101,11 @@
                                 <ImageBrush ImageSource="/Images/Back/B_add.png"/>
                             </Button.Background>
                         </Button>
+                        <Button x:Name="Bird" Content="Tree"  Height="22" Click ="Click_b" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,74,7,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                            </Button.Background>
+                        </Button>
 
                     </Grid>
                 </TabItem>

@@ -59,7 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddObject.cs" />
+    <Compile Include="AddAnimal.cs" />
+    <Compile Include="AddBird.cs" />
+    <Compile Include="AddTree.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -95,9 +97,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Birds\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Animals\4.png" />
   </ItemGroup>
@@ -127,6 +127,13 @@
     <Resource Include="Images\Animals\animal3.png" />
     <Resource Include="Images\Animals\animal4.png" />
     <Resource Include="Images\Animals\animal5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Birds\bird1.png" />
+    <Resource Include="Images\Birds\bird2.png" />
+    <Resource Include="Images\Birds\bird3.png" />
+    <Resource Include="Images\Birds\bird4.png" />
+    <Resource Include="Images\Birds\bird5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
