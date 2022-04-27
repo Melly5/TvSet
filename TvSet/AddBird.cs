@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 
 namespace TvSet
 {
-    internal class AddBird
+    public partial class MainWindow : Window
     {
         int countB = 0;
         public Rectangle addB(ImageBrush birdImage, Random rand)

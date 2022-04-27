@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -7,26 +7,39 @@ using System.Windows.Shapes;
 
 namespace TvSet
 {
+     
     public partial class MainWindow : Window
     {
-        bool goUp, goDown, goLeft, goRight;
+
         private void KeyisDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key==Key.Down)
             {
-                goDown = true;
+                if (Canvas.GetTop(SelectedCanvasObject) > 5)
+                {
+                    Canvas.SetTop(SelectedCanvasObject, Canvas.GetTop(SelectedCanvasObject) + 10);
+                }
             }
             else if (e.Key==Key.Up)
             {
-                goUp = true;
+                if (Canvas.GetTop(SelectedCanvasObject) > 5)
+                {
+                    Canvas.SetTop(SelectedCanvasObject, Canvas.GetTop(SelectedCanvasObject) - 10);
+                }
             }
             else if (e.Key==Key.Left)
             {
-                goLeft = true;
+                if (Canvas.GetLeft(SelectedCanvasObject) > 5)
+                {
+                    Canvas.SetLeft(SelectedCanvasObject, Canvas.GetLeft(SelectedCanvasObject) - 10);
+                }
             }
             else if (e.Key==Key.Right)
             {
-                goRight = true;
+                if (Canvas.GetLeft(SelectedCanvasObject) > 5)
+                {
+                    Canvas.SetLeft(SelectedCanvasObject, Canvas.GetLeft(SelectedCanvasObject) + 10);
+                }
             }
         }
 
@@ -34,22 +47,22 @@ namespace TvSet
         {
             if (e.Key == Key.Down)
             {
-                goDown = false;
+               
             }
             else if (e.Key == Key.Up)
             {
-                goUp = false;
+               
             }
             else if (e.Key == Key.Left)
             {
-                goLeft = false;
+               
             }
             else if (e.Key == Key.Right)
             {
-                goRight = false;
+               
             }
         }
- 
+
 
 
            
