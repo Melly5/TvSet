@@ -66,6 +66,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Click.cs" />
+    <Compile Include="Edit.cs" />
+    <Compile Include="KeyMovement.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -97,9 +100,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\Animals\4.png" />
+    <Content Include="Sounds\meow.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\AddB.png" />

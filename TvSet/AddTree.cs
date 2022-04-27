@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -9,9 +11,11 @@ namespace TvSet
 {
     internal class AddTree
     {
-        public Rectangle add(ImageBrush treeImage, Random rand)
+        int countT = 0;
+        public Rectangle addT(ImageBrush treeImage, Random rand)
         {
             int random = rand.Next(1, 5);
+            countT++;
 
             switch (random)
             {
@@ -31,9 +35,10 @@ namespace TvSet
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree5.png", UriKind.Relative));
                     break;
             }
+
             Rectangle newTree = new Rectangle
             {
-                Tag = "tree",
+                Tag = countT.ToString(CultureInfo.InvariantCulture),
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = treeImage

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Text;
+
 
 
 namespace TvSet
@@ -15,31 +12,25 @@ namespace TvSet
     public partial class MainWindow : Window
     {
         Random rand = new Random();
+        bool editMode = false;
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void Click_t(object sender, RoutedEventArgs e)
+
+
+        private void Edit_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            ImageBrush treeImage = new ImageBrush();
-            AddTree addobj = new AddTree();
-            World.Children.Add(addobj.add(treeImage, rand));
-        }
-        private void Click_a(object sender, RoutedEventArgs e)
-        {
-            ImageBrush animalImage = new ImageBrush();
-            AddAnimal addobj = new AddAnimal();
-            World.Children.Add(addobj.add(animalImage,rand));
-        }
-        private void Click_b(object sender, RoutedEventArgs e)
-        {
-            ImageBrush birdImage = new ImageBrush();
-            AddBird addobj = new AddBird();
-            World.Children.Add(addobj.add(birdImage, rand));
+            editMode = true;
+            string outp = "edit";
+
+            tbout.Text = outp;
         }
 
-
-
-
+        private void Add_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            string outp = "add";
+            tbout.Text = outp;
+        }
     }
 }

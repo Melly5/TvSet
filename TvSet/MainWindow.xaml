@@ -26,6 +26,8 @@
                 <RowDefinition Height="35*"/>
                 <RowDefinition Height="16*" />
             </Grid.RowDefinitions>
+            <Button Name="Cat"  Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="29,90,0,0" VerticalAlignment="Top" Width="113" Background="#19110707" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="#FFEEC7C7"/>
+            <TextBlock x:Name ="tbout"  Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="8,50,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="134"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -41,7 +43,7 @@
                 <RowDefinition Height="124*"/>
                 <RowDefinition Height="91*" />
             </Grid.RowDefinitions>
-            <Canvas Name="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="220" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="346"/>
+            <Canvas Name="World" KeyUp="KeyisUp"  KeyDown="KeyisDown" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="220" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="346"/>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -77,12 +79,12 @@
             <Slider Name="Temperature" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="82" Height="15" Margin="24,6,0,0"/>
             <Slider Name="Humidity" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Width="82" Height="15" Margin="24,-3,0,0"/>
             <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,12,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="116" Fill="Black" Grid.RowSpan="2"/>
-            <TabControl  Grid.Column="1" Grid.Row="2" BorderBrush="{x:Null}" Margin="5,27,10,0" Grid.RowSpan="2" Background="#FF8A6D54">
-                <TabItem Header="+" Width="40">
+            <TabControl  Grid.Column="1" Grid.Row="2" BorderBrush="{x:Null}" Margin="5,27,10,0" Grid.RowSpan="2" Background="#FF8A6D54" >
+                <TabItem Name="Add"  Header="+" Width="40" PreviewMouseDown="Add_preview">
                     <TabItem.Background>
                         <ImageBrush  ImageSource="/Images/Buttons/AddB.png"/>
                     </TabItem.Background>
-                    <Grid x:Name="Tree" Background="#FFC3A58A" HorizontalAlignment="Right" Width="113">
+                    <Grid  Background="#FFC3A58A" HorizontalAlignment="Right" Width="113">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
@@ -91,9 +93,9 @@
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Добавить" FontSize="9"  HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Column="1" Height="20"/>
-                        <Button x:Name="Tree1" Content="Tree"  Height="22" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,20,7,0">
+                        <Button x:Name="Tree" Content="Tree"  Height="22" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,20,7,0">
                             <Button.Background>
-                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png" Stretch="Fill"/>
                             </Button.Background>
                         </Button>
                         <Button x:Name="Animal" Content="Tree"  Height="22" Click ="Click_a" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="8,47,7,0">
@@ -109,7 +111,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Header="Edit" Width="40" BorderBrush="#FFB79A80" >
+                <TabItem Name="Edit" Header="Edit" Width="40" BorderBrush="#FFB79A80" PreviewMouseDown="Edit_preview">
                     <TabItem.Background>
                         <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
                     </TabItem.Background>

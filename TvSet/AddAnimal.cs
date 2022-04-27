@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -6,11 +8,14 @@ using System.Windows.Shapes;
 
 namespace TvSet
 {
-    public class AddAnimal
+    internal class AddAnimal
     {
-        public Rectangle add(ImageBrush animalImage, Random rand)
+        int countA = 0;
+        public Rectangle addA(ImageBrush animalImage, Random rand)
         {
             int random = rand.Next(1, 5);
+            countA++;
+
             switch (random)
             {
                 case 1:
@@ -31,7 +36,7 @@ namespace TvSet
             }
             Rectangle newAnimal = new Rectangle
             {
-                Tag = "animal",
+                Tag = countA.ToString(CultureInfo.InvariantCulture),
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = animalImage
@@ -39,6 +44,8 @@ namespace TvSet
             Canvas.SetTop(newAnimal, rand.Next(40, 150));
             Canvas.SetLeft(newAnimal, rand.Next(30, 300));
             return newAnimal;
+           
+            
            
         }
     }
