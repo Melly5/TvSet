@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TvSet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="800">
+        Title="MainWindow" Height="800" Width="1500"
+        KeyUp="KeyisUp"  KeyDown="KeyisDown">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Frame 5.png"/>
+            <ImageBrush ImageSource="/Images/Back/Back.png"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.2*"/>
@@ -22,22 +23,39 @@
                 <ColumnDefinition Width="27"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="180"/>
-                <RowDefinition Height="140"/>
-                <RowDefinition />
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="16*" />
             </Grid.RowDefinitions>
+            <GroupBox Name="InfoGrid"  Grid.Column="1" HorizontalAlignment="Left" Height="258" Margin="0,17,0,0" Grid.Row="1"  Width="362" BorderBrush="{x:Null}" Background="#FFD2B59B" Foreground="{x:Null}">
+                <GroupBox.Header>
+                    <TextBlock FontSize="18" FontWeight="Bold" Text="Информация об объекте" Foreground="#FF7B624C"/>
+                </GroupBox.Header>
+                <StackPanel>
+                    <Rectangle x:Name= "Condition"  Margin="0,20,0,0" Fill="Red" Height="20" Width="120"/>
+                    <TextBlock x:Name = "Condition_text" Text = "condition" Margin="0,20,0,0" Width="264" Foreground="Black" />
+                    <TextBlock x:Name = "kind" Text = "kind" Margin="0,20,0,0" Width="264" Foreground="Black" />
+                    <TextBlock x:Name = "tbout" Margin="0,20,0,0"  Height="80"  TextWrapping="Wrap" Text="information"  Width="264" Foreground="Black"/>
+                </StackPanel>
+            </GroupBox>
+
+            <Button x:Name="Cat"  Grid.Column="1" HorizontalAlignment="Left" Height="103" Margin="133,184,0,0" VerticalAlignment="Top" Width="132" Background="#19110707" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="#FFEEC7C7" Click="click_cat"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="3.544"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="183*"/>
+                <ColumnDefinition Width="183*"/>
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="53"/>
-                <RowDefinition Height="240"/>
-                <RowDefinition />
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="116*"/>
+                <RowDefinition Height="124*"/>
+                <RowDefinition Height="91*" />
             </Grid.RowDefinitions>
+            <Canvas x:Name ="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="490" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="674"/>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -46,30 +64,92 @@
                 <ColumnDefinition Width="32"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="55"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="114"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="27*"/>
+                <RowDefinition Height="154*"/>
+
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition />
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="68*" />
             </Grid.RowDefinitions>
-            <Button Grid.Column="1" HorizontalAlignment="Center" Height="27" Margin="0,3,0,0" Grid.Row="6" VerticalAlignment="Top" Width="49">
+            <Button Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="95,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="89">
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Buttons/CloseB.png"/>
+                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
                 </Button.Background>
             </Button>
-            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
+            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="70,118,0,0" Grid.Row="3" VerticalAlignment="Top" Width="50">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Buttons/AddB.png"/>
+                    <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
                 </Button.Background>
             </Button>
-            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="68,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="50">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Buttons/EditB.png"/>
-                </Button.Background>
-            </Button>
+            <Slider Name="Temperature" Minimum="-20" Maximum="45" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="15" Margin="62,16,0,0"/>
+            <TextBox Name="Temp_text" FontSize="8" Text="{Binding ElementName=Temperature, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="221,16,0,21" TextWrapping="Wrap" TextAlignment="Center"  Width="28" Grid.Row="1" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
+
+            <Slider Name="Humidity" Minimum="0" Maximum="100" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="153" Height="15" Margin="62,13,0,0"/>
+            <TextBox Name="Hum_text" FontSize="8" Text="{Binding ElementName=Humidity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="220,10,0,24" TextWrapping="Wrap" TextAlignment="Center"  Width="24" Grid.Row="2" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
+
+            <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,12,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="116" Fill="Black" Grid.RowSpan="2"/>
+            <TabControl  Grid.Column="1" Grid.Row="3" BorderBrush="{x:Null}" Margin="24,0,48,10" Background="#FF8D7158" >
+                <TabItem Name="Add"  Margin="12,0,0,0" Header="+" Height="40" Width="100" PreviewMouseDown="Add_preview">
+                    <TabItem.Background>
+                        <ImageBrush  ImageSource="/Images/Buttons/AddB.png"/>
+                    </TabItem.Background>
+                    <Grid  Background="#FFAC9076" HorizontalAlignment="Left" Width="228">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Добавить" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="34" Width="116"/>
+                        <Button x:Name="Tree" Content="Tree"  Height="39" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,53,21,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png" Stretch="Fill"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="Animal" Content="Tree"  Height="45" Click ="Click_a" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,97,21,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="Bird" Content="Tree"  Height="44" Click ="Click_b" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,147,21,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                            </Button.Background>
+                        </Button>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Name="Edit"   Margin="10,0,0,0" Header="Edit" Height="40" Width="100" BorderBrush="#FFB79A80" PreviewMouseDown="Edit_preview">
+                    <TabItem.Background>
+                        <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
+                    </TabItem.Background>
+                    <Grid Background="#FFC4A78C" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="67*"/>
+                            <RowDefinition Height="0*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="EditInfo" FontSize="9" Margin="10,17,-46,63">
+                            <Label.Content>
+                                <TextBlock FontSize="17" TextAlignment="Center" TextWrapping="Wrap" Height="112" Width="186" >Нажмите на объект ЛКМ и перемещайте с помощью клавиш клавиатуры.</TextBlock>
+                            </Label.Content>
+                        </Label>
+                        <Button Content="Удалить"  HorizontalAlignment="Left" Height="40" Margin="70,0,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                            </Button.Background>
+                        </Button>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Grid>
 </Window>

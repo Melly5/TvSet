@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Text;
+using System.Globalization;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace TvSet
 {
@@ -20,9 +12,39 @@ namespace TvSet
     /// </summary>
     public partial class MainWindow : Window
     {
+        Random rand = new Random();
+        string cond = "";
+
         public MainWindow()
         {
             InitializeComponent();
+            InfoGrid.Visibility = Visibility.Hidden;
         }
+
+
+        private void Edit_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+    
+            //string outp = "Информация об объекте";
+            InfoGrid.Visibility = Visibility.Visible;
+        
+            double temp = Double.Parse(Temp_text.Text, CultureInfo.InvariantCulture);
+            double hum = Double.Parse(Hum_text.Text, CultureInfo.InvariantCulture);
+            
+            cond = Check_condition(temp, hum);
+            Condition_text.Text = cond;
+
+          /*  StringBuilder str = new StringBuilder();
+            str.Append(temp + "\n" + hum);
+            tbout.Text = str.ToString();*/
+        }
+
+        public void Add_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            string outp = "add";
+            tbout.Text = outp;
+        }
+
+
     }
 }
