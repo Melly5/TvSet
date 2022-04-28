@@ -10,11 +10,12 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        int countB = 0;
+        int _countB = 0;
+        private Rectangle _newBird;
         public Rectangle addB(ImageBrush birdImage, Random rand)
         {
             int random = rand.Next(1, 5);
-            countB++;
+            _countB++;
             switch (random)
             {
                 case 1:
@@ -33,16 +34,18 @@ namespace TvSet
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird5.png", UriKind.Relative));
                     break;
             }
-            Rectangle newBird = new Rectangle
+            _newBird = new Rectangle
             {
-                Tag = countB.ToString(CultureInfo.InvariantCulture),           
+                Tag = _countB.ToString(CultureInfo.InvariantCulture),           
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = birdImage
             };
-            Canvas.SetTop(newBird, rand.Next(40, 150));
-            Canvas.SetLeft(newBird, rand.Next(30, 300));
-            return newBird;
+            _newBird.MouseDown += Rectangle_OnMouseDown;
+
+            Canvas.SetTop(_newBird, rand.Next(40, 150));
+            Canvas.SetLeft(_newBird, rand.Next(30, 300));
+            return _newBird;
 
         }
     }

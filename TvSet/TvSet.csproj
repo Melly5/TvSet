@@ -102,6 +102,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Trees\tree.png" />
     <Content Include="Sounds\meow.mp3" />
   </ItemGroup>
   <ItemGroup>

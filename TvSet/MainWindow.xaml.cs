@@ -14,6 +14,7 @@ namespace TvSet
     {
         Random rand = new Random();
         string cond = "";
+        private static FrameworkElement SelectedCanvasObject;
 
         public MainWindow()
         {

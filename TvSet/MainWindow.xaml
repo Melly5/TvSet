@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TvSet"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1500"
-        KeyUp="KeyisUp"  KeyDown="KeyisDown">
+        KeyDown="KeyisDown">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/Back/Back.png"/>
@@ -55,7 +55,9 @@
                 <RowDefinition Height="124*"/>
                 <RowDefinition Height="91*" />
             </Grid.RowDefinitions>
-            <Canvas x:Name ="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="490" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="674"/>
+            <Canvas x:Name ="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="490" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="674">
+                <Image Height="189" Canvas.Left="474" Canvas.Top="91" Width="191" Source="/Images/Trees/tree.png"/>
+            </Canvas>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>

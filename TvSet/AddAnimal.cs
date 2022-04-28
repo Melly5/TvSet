@@ -11,6 +11,8 @@ namespace TvSet
     public partial class MainWindow : Window
     {
         int countA = 0;
+        private Rectangle _newAnimal;
+
         public Rectangle addA(ImageBrush animalImage, Random rand)
         {
             int random = rand.Next(1, 5);
@@ -34,16 +36,18 @@ namespace TvSet
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal5.png", UriKind.Relative));
                     break;
             }
-            Rectangle newAnimal = new Rectangle
+            _newAnimal = new Rectangle
             {
                 Tag = countA.ToString(CultureInfo.InvariantCulture),
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = animalImage
             };
-            Canvas.SetTop(newAnimal, rand.Next(40, 150));
-            Canvas.SetLeft(newAnimal, rand.Next(30, 300));
-            return newAnimal;
+            _newAnimal.MouseDown += Rectangle_OnMouseDown;
+
+            Canvas.SetTop(_newAnimal, rand.Next(40, 150));
+            Canvas.SetLeft(_newAnimal, rand.Next(30, 300));
+            return _newAnimal;
            
             
            

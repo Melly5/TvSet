@@ -43,25 +43,7 @@ namespace TvSet
             }
         }
 
-        private void KeyisUp(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Down)
-            {
-               
-            }
-            else if (e.Key == Key.Up)
-            {
-               
-            }
-            else if (e.Key == Key.Left)
-            {
-               
-            }
-            else if (e.Key == Key.Right)
-            {
-               
-            }
-        }
+
 
 
 

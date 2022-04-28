@@ -14,7 +14,6 @@ namespace TvSet
     {
         private int _countT = 0;
         private Rectangle _newTree;
-        private static FrameworkElement SelectedCanvasObject;
         public Rectangle addT(ImageBrush treeImage, Random rand)
         {
             int random = rand.Next(1, 5);
@@ -53,10 +52,7 @@ namespace TvSet
             Canvas.SetLeft(_newTree, rand.Next(30, 500));
             return _newTree;
         }
-            public Rectangle getTree()
-            {
-                return _newTree;
-            }
+
             private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
             {
                 var mouseWasDownOn = e.Source as FrameworkElement;
