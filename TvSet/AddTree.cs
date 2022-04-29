@@ -14,7 +14,7 @@ namespace TvSet
     {
         private Rectangle _newTree;
         private ComboBoxItem _selectedItem;
-        int random;
+
         public Rectangle AddTree(int ind)
         {
             ImageBrush treeImage = new ImageBrush();
@@ -61,14 +61,5 @@ namespace TvSet
             int index = _selectedItem.TabIndex + 1;
             World.Children.Add(AddTree(index));
         }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            _selectedItem = selectedItem;
-        }
-
-
     }
 }

@@ -18,6 +18,13 @@ namespace TvSet
             ClickSound.Play();
         }
         */
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            _selectedItem = selectedItem;
+        }
+
         DropShadowEffect effect = new DropShadowEffect();
         private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
         {

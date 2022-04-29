@@ -44,12 +44,17 @@ namespace TvSet
                     Canvas.SetLeft(SelectedCanvasObject, Canvas.GetLeft(SelectedCanvasObject) + 10);
                 }
             }
-        }
+            else if (e.Key == Key.OemMinus)
+            {
 
-
-
-
-
-           
-}
+                SelectedCanvasObject.Height -= 5;
+                SelectedCanvasObject.Width -= 5;
+            }
+            else if (e.Key == Key.OemPlus)
+            {
+                SelectedCanvasObject.Height += 5;
+                SelectedCanvasObject.Width += 5;
+            }
+        }          
+    }
 }
