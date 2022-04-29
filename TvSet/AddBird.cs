@@ -12,10 +12,11 @@ namespace TvSet
     {
         private Rectangle _newBird;
         
-        public Rectangle addB(ImageBrush birdImage, Random rand)
+        public Rectangle AddBird(int ind)
         {
-            random = rand.Next(1, 5);
-            switch (random)
+            ImageBrush birdImage = new ImageBrush();
+  
+            switch (ind)
             {
                 case 1:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird1.png", UriKind.Relative));
@@ -46,6 +47,14 @@ namespace TvSet
             Canvas.SetLeft(_newBird, rand.Next(30, 300));
             return _newBird;
 
+        }
+        private void Click_Bird(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
+
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddBird(index));
         }
     }
 }

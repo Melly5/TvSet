@@ -10,15 +10,13 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        int countA = 0;
+  
         private Rectangle _newAnimal;
 
-        public Rectangle addA(ImageBrush animalImage, Random rand)
+        public Rectangle AddAnimal(int ind)
         {
-            random = rand.Next(1, 5);
-            countA++;
-
-            switch (random)
+            ImageBrush animalImage = new ImageBrush();
+            switch (ind)
             {
                 case 1:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal1.png", UriKind.Relative));
@@ -38,7 +36,7 @@ namespace TvSet
             }
             _newAnimal = new Rectangle
             {
-                Tag = countA.ToString(CultureInfo.InvariantCulture),
+                Tag = new Guid().ToString(),
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = animalImage
@@ -47,10 +45,15 @@ namespace TvSet
 
             Canvas.SetTop(_newAnimal, rand.Next(40, 150));
             Canvas.SetLeft(_newAnimal, rand.Next(30, 300));
-            return _newAnimal;
-           
-            
-           
+            return _newAnimal;           
+        }
+        private void Click_Animal(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
+
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddAnimal(index));
         }
     }
 }

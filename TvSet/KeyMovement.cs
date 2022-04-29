@@ -13,6 +13,9 @@ namespace TvSet
 
         private void KeyisDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            if (SelectedCanvasObject == null)
+                return;
+
             if (e.Key==Key.Down)
             {
                 if (Canvas.GetTop(SelectedCanvasObject) > 5)

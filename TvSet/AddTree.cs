@@ -13,18 +13,16 @@ namespace TvSet
     public partial class MainWindow : Window
     {
         private Rectangle _newTree;
+        private ComboBoxItem _selectedItem;
         int random;
-       
-        public Rectangle addT(ImageBrush treeImage, Random rand)
+        public Rectangle AddTree(int ind)
         {
-            random = rand.Next(1, 5);
-            string[] unicName = new string[5];
+            ImageBrush treeImage = new ImageBrush();
 
-            switch (random)
+            switch (ind)
             {
                 case 1:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree1.png", UriKind.Relative));
-                    
                     break;
                 case 2:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree2.png", UriKind.Relative));
@@ -49,13 +47,28 @@ namespace TvSet
             };
 
             _newTree.MouseDown += Rectangle_OnMouseDown;
-            _newTree.MouseMove += Rectangle_OnMouseUp;
+                  
             Canvas.SetTop(_newTree, rand.Next(30, 300));
             Canvas.SetLeft(_newTree, rand.Next(30, 500));
             return _newTree;
         }
 
+        private void Click_Tree(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
 
-   
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddTree(index));
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            _selectedItem = selectedItem;
+        }
+
+
+    }
 }
