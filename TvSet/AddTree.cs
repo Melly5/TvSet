@@ -12,13 +12,10 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        private int _countT = 0;
         private Rectangle _newTree;
         public Rectangle addT(ImageBrush treeImage, Random rand)
         {
             int random = rand.Next(1, 5);
-            _countT++;
-
             switch (random)
             {
                 case 1:
@@ -53,16 +50,7 @@ namespace TvSet
             return _newTree;
         }
 
-            private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
-            {
-                var mouseWasDownOn = e.Source as FrameworkElement;
 
-                if (mouseWasDownOn != null)
-                {
-                    SelectedCanvasObject = mouseWasDownOn;
-                    
-                }
-            }
    
         }
 }

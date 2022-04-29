@@ -27,7 +27,7 @@ namespace TvSet
         {
     
             //string outp = "Информация об объекте";
-            InfoGrid.Visibility = Visibility.Visible;
+            
         
             double temp = Double.Parse(Temp_text.Text, CultureInfo.InvariantCulture);
             double hum = Double.Parse(Hum_text.Text, CultureInfo.InvariantCulture);

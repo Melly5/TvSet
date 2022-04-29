@@ -11,32 +11,36 @@ namespace TvSet
     {
         private void Click_t(object sender, RoutedEventArgs e)
         {
-            ImageBrush treeImage = new ImageBrush();
-        
+            ImageBrush treeImage = new ImageBrush();      
             World.Children.Add(addT(treeImage, rand));
-       
-      
         }
         private void Click_a(object sender, RoutedEventArgs e)
         {
-            ImageBrush animalImage = new ImageBrush();
-            
+            ImageBrush animalImage = new ImageBrush();         
             World.Children.Add(addA(animalImage, rand));
         }
         private void Click_b(object sender, RoutedEventArgs e)
         {
-            ImageBrush birdImage = new ImageBrush();
-            
+            ImageBrush birdImage = new ImageBrush();       
             World.Children.Add(addB(birdImage, rand));
         }
-        MediaPlayer ClickSound = new MediaPlayer();
-        private Rectangle c;
+        /*MediaPlayer ClickSound = new MediaPlayer();
 
         private void click_cat(object sender, RoutedEventArgs e)
         {
             ClickSound.Open(new Uri("/Sounds/meow.mp3", UriKind.Relative));
             ClickSound.Play();
         }
+        */
+        private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var mouseWasDownOn = e.Source as FrameworkElement;
 
+            if (mouseWasDownOn != null)
+            {
+                SelectedCanvasObject = mouseWasDownOn;
+                InfoGrid.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

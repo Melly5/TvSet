@@ -10,12 +10,10 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        int _countB = 0;
         private Rectangle _newBird;
         public Rectangle addB(ImageBrush birdImage, Random rand)
         {
             int random = rand.Next(1, 5);
-            _countB++;
             switch (random)
             {
                 case 1:
@@ -36,7 +34,7 @@ namespace TvSet
             }
             _newBird = new Rectangle
             {
-                Tag = _countB.ToString(CultureInfo.InvariantCulture),           
+                Tag = new Guid().ToString(),
                 Height = rand.Next(70, 100),
                 Width = rand.Next(40, 50),
                 Fill = birdImage
