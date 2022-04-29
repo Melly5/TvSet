@@ -11,9 +11,10 @@ namespace TvSet
     public partial class MainWindow : Window
     {
         private Rectangle _newBird;
+        
         public Rectangle addB(ImageBrush birdImage, Random rand)
         {
-            int random = rand.Next(1, 5);
+            random = rand.Next(1, 5);
             switch (random)
             {
                 case 1:

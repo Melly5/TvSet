@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 
 namespace TvSet
@@ -32,6 +33,7 @@ namespace TvSet
             ClickSound.Play();
         }
         */
+        DropShadowEffect effect = new DropShadowEffect();
         private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             var mouseWasDownOn = e.Source as FrameworkElement;
@@ -40,7 +42,36 @@ namespace TvSet
             {
                 SelectedCanvasObject = mouseWasDownOn;
                 InfoGrid.Visibility = Visibility.Visible;
+                kind.Text = NameT[random];
+ 
+                effect.Color = Colors.Red;
+                effect.Direction = -50;
+                effect.BlurRadius = 5;
+                effect.ShadowDepth = 6;
+                SelectedCanvasObject.Effect = effect;
             }
+        }
+        private void Rectangle_OnMouseUp(object sender, MouseEventArgs e)
+        {
+            var mouseWasUpOn = e.Source as FrameworkElement;
+
+            if (mouseWasUpOn != null)
+            {
+                SelectedCanvasObject = mouseWasUpOn;
+                effect.Color = Colors.Transparent;
+                effect.Direction = 0;
+                effect.BlurRadius = 0;
+                effect.ShadowDepth = 0;
+                SelectedCanvasObject.Effect = effect;
+            }
+        }
+        private void DeleteObject(object sender, RoutedEventArgs e)
+        {
+            World.Children.Remove(SelectedCanvasObject as UIElement);
+        }
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }

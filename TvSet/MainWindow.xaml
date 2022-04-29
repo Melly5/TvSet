@@ -35,7 +35,12 @@
                     <Rectangle x:Name= "Condition"  Margin="0,20,0,0" Fill="Red" Height="20" Width="120"/>
                     <TextBlock x:Name = "Condition_text" Text = "condition" Margin="0,20,0,0" Width="264" Foreground="Black" />
                     <TextBlock x:Name = "kind" Text = "kind" Margin="0,20,0,0" Width="264" Foreground="Black" />
-                    <TextBlock x:Name = "tbout" Margin="0,20,0,0"  Height="80"  TextWrapping="Wrap" Text="information"  Width="264" Foreground="Black"/>
+                    <TextBlock x:Name = "tbout" Margin="0,20,0,0"  Height="45"  TextWrapping="Wrap" Text="information"  Width="264" Foreground="Black"/>
+                    <Button x:Name="Delete" Click="DeleteObject"  Content="Удалить" Height="40" Width="76">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
             </GroupBox>
 
@@ -74,16 +79,6 @@
                 <RowDefinition Height="40*"/>
                 <RowDefinition Height="68*" />
             </Grid.RowDefinitions>
-            <Button Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="95,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="89">
-                <Button.Background>
-                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
-                </Button.Background>
-            </Button>
-            <Button Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="70,118,0,0" Grid.Row="3" VerticalAlignment="Top" Width="50">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
-                </Button.Background>
-            </Button>
             <Slider Name="Temperature" Minimum="-20" Maximum="45" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="15" Margin="62,16,0,0"/>
             <TextBox Name="Temp_text" FontSize="8" Text="{Binding ElementName=Temperature, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="221,16,0,21" TextWrapping="Wrap" TextAlignment="Center"  Width="28" Grid.Row="1" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
 
@@ -91,66 +86,27 @@
             <TextBox Name="Hum_text" FontSize="8" Text="{Binding ElementName=Humidity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="220,10,0,24" TextWrapping="Wrap" TextAlignment="Center"  Width="24" Grid.Row="2" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
 
             <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,12,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="116" Fill="Black" Grid.RowSpan="2"/>
-            <TabControl  Grid.Column="1" Grid.Row="3" BorderBrush="{x:Null}" Margin="24,0,48,10" Background="#FF8D7158" >
-                <TabItem Name="Add"  Margin="12,0,0,0" Header="+" Height="40" Width="100" PreviewMouseDown="Add_preview">
-                    <TabItem.Background>
-                        <ImageBrush  ImageSource="/Images/Buttons/AddB.png"/>
-                    </TabItem.Background>
-                    <Grid  Background="#FFAC9076" HorizontalAlignment="Left" Width="228">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="0*"/>
-                        </Grid.RowDefinitions>
-                        <Label Content="Добавить" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="34" Width="116"/>
-                        <Button x:Name="Tree" Content="Tree"  Height="39" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,53,21,0">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Images/Back/B_add.png" Stretch="Fill"/>
-                            </Button.Background>
-                        </Button>
-                        <Button x:Name="Animal" Content="Tree"  Height="45" Click ="Click_a" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,97,21,0">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
-                            </Button.Background>
-                        </Button>
-                        <Button x:Name="Bird" Content="Tree"  Height="44" Click ="Click_b" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="10,147,21,0">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Images/Back/B_add.png"/>
-                            </Button.Background>
-                        </Button>
-
-                    </Grid>
-                </TabItem>
-                <TabItem Name="Edit"   Margin="10,0,0,0" Header="Edit" Height="40" Width="100" BorderBrush="#FFB79A80" PreviewMouseDown="Edit_preview">
-                    <TabItem.Background>
-                        <ImageBrush ImageSource="/Images/Buttons/EditB.png"/>
-                    </TabItem.Background>
-                    <Grid Background="#FFC4A78C" >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="67*"/>
-                            <RowDefinition Height="0*"/>
-                            <RowDefinition Height="20*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Name="EditInfo" FontSize="9" Margin="10,17,-46,63">
-                            <Label.Content>
-                                <TextBlock FontSize="17" TextAlignment="Center" TextWrapping="Wrap" Height="112" Width="186" >Нажмите на объект ЛКМ и перемещайте с помощью клавиш клавиатуры.</TextBlock>
-                            </Label.Content>
-                        </Label>
-                        <Button Content="Удалить"  HorizontalAlignment="Left" Height="40" Margin="70,0,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
-                            </Button.Background>
-                        </Button>
-
-                    </Grid>
-                </TabItem>
-            </TabControl>
+            <Label Content="Добавить" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="34" Width="116" Grid.Column="1" Margin="87,13,0,0" Grid.Row="3"/>
+            <Button x:Name="Tree" Content="Tree"  Height="39" Click ="Click_t" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="41,66,59,0" Grid.Column="1" Grid.Row="3">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Back/B_add.png" Stretch="Fill"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Animal" Content="Tree"  Height="45" Click ="Click_a" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="41,110,59,0" Grid.Column="1" Grid.Row="3">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Bird" Content="Tree"  Height="44" Click ="Click_b" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="41,160,59,0" Grid.Row="3" Grid.Column="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Back/B_add.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="Close"  Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="95,241,0,0" Grid.Row="3" VerticalAlignment="Top" Width="89">
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </Window>

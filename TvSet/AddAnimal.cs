@@ -15,7 +15,7 @@ namespace TvSet
 
         public Rectangle addA(ImageBrush animalImage, Random rand)
         {
-            int random = rand.Next(1, 5);
+            random = rand.Next(1, 5);
             countA++;
 
             switch (random)

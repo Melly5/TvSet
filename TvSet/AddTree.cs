@@ -13,13 +13,18 @@ namespace TvSet
     public partial class MainWindow : Window
     {
         private Rectangle _newTree;
+        int random;
+       
         public Rectangle addT(ImageBrush treeImage, Random rand)
         {
-            int random = rand.Next(1, 5);
+            random = rand.Next(1, 5);
+            string[] unicName = new string[5];
+
             switch (random)
             {
                 case 1:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree1.png", UriKind.Relative));
+                    
                     break;
                 case 2:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree2.png", UriKind.Relative));
@@ -44,7 +49,7 @@ namespace TvSet
             };
 
             _newTree.MouseDown += Rectangle_OnMouseDown;
-
+            _newTree.MouseMove += Rectangle_OnMouseUp;
             Canvas.SetTop(_newTree, rand.Next(30, 300));
             Canvas.SetLeft(_newTree, rand.Next(30, 500));
             return _newTree;
