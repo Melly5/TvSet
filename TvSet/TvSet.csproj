@@ -111,7 +111,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Trees\tree.png" />
+    <Resource Include="Images\Trees\tree1.png" />
+    <Resource Include="Images\Trees\tree2.png" />
+    <Resource Include="Images\Trees\tree3.png" />
+    <Resource Include="Images\Trees\tree4.png" />
+    <Resource Include="Images\Trees\tree5.png" />
     <Content Include="Sounds\meow.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -124,15 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Back\B_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Trees\tree1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Trees\tree2.png" />
-    <Resource Include="Images\Trees\tree3.png" />
-    <Resource Include="Images\Trees\tree4.png" />
-    <Resource Include="Images\Trees\tree5.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Animals\animal1.png" />

@@ -21,7 +21,7 @@ namespace TvSet
 		{
 			InitializeComponent();
 			InfoGrid.Visibility = Visibility.Hidden;
-			
+
 		}
 	}
 }

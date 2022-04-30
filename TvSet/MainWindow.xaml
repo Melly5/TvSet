@@ -253,6 +253,18 @@
                             <TextBlock FontWeight="ExtraBold" Foreground="#FF76563E" VerticalAlignment="Center">Пихта</TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
+                    <ComboBoxItem x:Name="tree4" TabIndex="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Trees/tree4.png" Width="25" Height="25"/>
+                            <TextBlock FontWeight="ExtraBold" Foreground="#FF76563E" VerticalAlignment="Center">Пихта</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="tree5" TabIndex="4">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Trees/tree5.png" Width="25" Height="25"/>
+                            <TextBlock FontWeight="ExtraBold" Foreground="#FF76563E" VerticalAlignment="Center">Пихта</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
                 </ComboBox>
             </Canvas>
         </Grid>
