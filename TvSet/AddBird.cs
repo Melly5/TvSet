@@ -10,40 +10,51 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        int countB = 0;
-        public Rectangle addB(ImageBrush birdImage, Random rand)
+        private Rectangle _newBird;
+        
+        public Rectangle AddBird(int ind)
         {
-            int random = rand.Next(1, 5);
-            countB++;
-            switch (random)
+            count++;
+            ImageBrush birdImage = new ImageBrush();
+            _newBird = new Rectangle();
+            switch (ind)
             {
                 case 1:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird1.png", UriKind.Relative));
+                    _newBird.Height = _newBird.ActualHeight + 60;
+                    _newBird.Width = _newBird.ActualWidth + 60;
                     break;
                 case 2:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird2.png", UriKind.Relative));
+                    _newBird.Height = _newBird.ActualHeight + 50;
+                    _newBird.Width = _newBird.ActualWidth + 60;
                     break;
                 case 3:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird3.png", UriKind.Relative));
+                    _newBird.Height = _newBird.ActualHeight + 70;
+                    _newBird.Width = _newBird.ActualWidth + 70;
                     break;
                 case 4:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird4.png", UriKind.Relative));
+                    _newBird.Height = _newBird.ActualHeight + 50;
+                    _newBird.Width = _newBird.ActualWidth + 50;
                     break;
                 case 5:
                     birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird5.png", UriKind.Relative));
+                    _newBird.Height = _newBird.ActualHeight + 60;
+                    _newBird.Width = _newBird.ActualWidth + 75;
                     break;
             }
-            Rectangle newBird = new Rectangle
-            {
-                Tag = countB.ToString(CultureInfo.InvariantCulture),           
-                Height = rand.Next(70, 100),
-                Width = rand.Next(40, 50),
-                Fill = birdImage
-            };
-            Canvas.SetTop(newBird, rand.Next(40, 150));
-            Canvas.SetLeft(newBird, rand.Next(30, 300));
-            return newBird;
+
+            _newBird.Fill = birdImage;
+            _newBird.Tag = ind - 1;
+            _newBird.MouseDown += Rectangle_OnMouseDown;
+
+            Canvas.SetTop(_newBird, rand.Next(30, 180));
+            Canvas.SetLeft(_newBird, rand.Next(30, 540));
+            return _newBird;
 
         }
+
     }
 }

@@ -1,50 +1,44 @@
 ﻿using System;
 using System.Windows;
-using System.Text;
-using System.Globalization;
-using System.Windows.Input;
-using System.Windows.Controls;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace TvSet
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        Random rand = new Random();
-        string cond = "";
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            InfoGrid.Visibility = Visibility.Hidden;
-        }
-
-
-        private void Edit_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-    
-            //string outp = "Информация об объекте";
-            InfoGrid.Visibility = Visibility.Visible;
-        
-            double temp = Double.Parse(Temp_text.Text, CultureInfo.InvariantCulture);
-            double hum = Double.Parse(Hum_text.Text, CultureInfo.InvariantCulture);
-            
-            cond = Check_condition(temp, hum);
-            Condition_text.Text = cond;
-
-          /*  StringBuilder str = new StringBuilder();
-            str.Append(temp + "\n" + hum);
-            tbout.Text = str.ToString();*/
-        }
-
-        public void Add_preview(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            string outp = "add";
-            tbout.Text = outp;
-        }
+	/// <summary>
+	/// Логика взаимодействия для MainWindow.xaml
+	/// </summary>
+	/// 
+	public partial class MainWindow : Window, INotifyPropertyChanged
+	{
+		static Random rand = new Random();
+		int temp, hum;
+		int count = 0;
+		private static FrameworkElement SelectedCanvasObject;
+		public MainWindow()
+		{
+			InitializeComponent();
+			InfoGrid.Visibility = Visibility.Hidden;
+		
+		}
 
 
-    }
+		private string count_obj;
+		public string CountObjects
+		{
+			get => count_obj; set
+			{
+				count_obj = value;
+
+				OnPropertyChanged("CountObjects");
+			}
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
+		public void OnPropertyChanged([CallerMemberName] string prop = "")
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+		}
+
+	}
 }
