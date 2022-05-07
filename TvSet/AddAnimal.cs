@@ -16,44 +16,43 @@ namespace TvSet
         public Rectangle AddAnimal(int ind)
         {
             ImageBrush animalImage = new ImageBrush();
+            _newAnimal = new Rectangle();
             switch (ind)
             {
                 case 1:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal1.png", UriKind.Relative));
+                    _newAnimal.Height = _newAnimal.ActualHeight + 80;
+                    _newAnimal.Width = _newAnimal.ActualWidth + 115;
                     break;
                 case 2:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal2.png", UriKind.Relative));
+                    _newAnimal.Height = _newAnimal.ActualHeight + 60;
+                    _newAnimal.Width = _newAnimal.ActualWidth + 60;
                     break;
                 case 3:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal3.png", UriKind.Relative));
+                    _newAnimal.Height = _newAnimal.ActualHeight + 80;
+                    _newAnimal.Width = _newAnimal.ActualWidth + 90;
                     break;
                 case 4:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal4.png", UriKind.Relative));
+                    _newAnimal.Height = _newAnimal.ActualHeight + 130;
+                    _newAnimal.Width = _newAnimal.ActualWidth + 140;
                     break;
                 case 5:
                     animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal5.png", UriKind.Relative));
+                    _newAnimal.Height = _newAnimal.ActualHeight + 60;
+                    _newAnimal.Width = _newAnimal.ActualWidth + 80;
                     break;
             }
-            _newAnimal = new Rectangle
-            {
-                Tag = new Guid().ToString(),
-                Height = rand.Next(70, 100),
-                Width = rand.Next(40, 50),
-                Fill = animalImage
-            };
+            _newAnimal.Fill = animalImage;
+            _newAnimal.Tag = ind - 1;
             _newAnimal.MouseDown += Rectangle_OnMouseDown;
 
             Canvas.SetTop(_newAnimal, rand.Next(40, 150));
             Canvas.SetLeft(_newAnimal, rand.Next(30, 300));
             return _newAnimal;           
         }
-        private void Click_Animal(object sender, RoutedEventArgs e)
-        {
-            if (_selectedItem == null)
-                return;
 
-            int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddAnimal(index));
-        }
     }
 }

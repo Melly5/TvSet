@@ -18,13 +18,40 @@ namespace TvSet
             ClickSound.Play();
         }
         */
+        string boxName;
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             _selectedItem = selectedItem;
-        }
+            boxName = comboBox.Name;
 
+        }
+        private void Click_tree(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
+
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddTree(index));
+            
+        }
+        private void Click_bird(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddBird(index));
+
+        }
+        private void Click_animal(object sender, RoutedEventArgs e)
+        {
+            if (_selectedItem == null)
+                return;
+            int index = _selectedItem.TabIndex + 1;
+            World.Children.Add(AddAnimal(index));
+        }
+        
         DropShadowEffect effect = new DropShadowEffect();
         private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -37,9 +64,10 @@ namespace TvSet
                     SelectedCanvasObject.Effect = null;
                 }
                 SelectedCanvasObject = mouseWasDownOn;
-               
+        
+                kind.Text = NameTree[(int)SelectedCanvasObject.Tag];
+
                 InfoGrid.Visibility = Visibility.Visible;
-               
                 effect.Color = Colors.Red;
                 effect.Direction = -50;
                 effect.BlurRadius = 5;

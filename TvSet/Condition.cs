@@ -11,23 +11,46 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        public string condition = "";
-        public string Check_condition(double temp, double hum)
+
+        public void Check_condition(double temp, double hum)
         {
-            if (temp < 0&hum>50) 
-                    condition = "beeee";
+            if (temp < 0 & hum>50)
+			{
+                Condition.Fill = Brushes.Red;  
+                Condition_text.Text = "die human1";
+            }
+                    
             else if (temp < 0 & hum < 40)
-                    condition = "die human";
+            {
+                Condition.Fill = Brushes.Purple;
+                Condition_text.Text = "die human2";
+            }
             else if (temp < 0 & hum > 40 & hum < 50)
-                    condition = "die little human";
+            {
+                Condition.Fill = Brushes.Pink;
+                Condition_text.Text = "die human3";
+            }
             else if (temp > 0 & hum > 30 )
-                condition = "uhh, move me, human";
+            {
+                Condition.Fill = Brushes.OrangeRed;
+                Condition_text.Text = "die human4";
+            }
             else if (temp > 0 & hum > 30 & hum < 70)
-                condition = "uhh, could be better, human";
+            {
+                Condition.Fill = Brushes.Orange;
+                Condition_text.Text = "die human5";
+            }
             else if (temp > 15 & hum > 30 & hum < 70)
-                condition = "that's nice,human";
-            else condition = "that's nice,oh-eh human";
-            return condition;
+            {
+                Condition.Fill = Brushes.Yellow;
+                Condition_text.Text = "die human5";
+            }
+            else
+            {
+                Condition.Fill = Brushes.Cyan;
+                Condition_text.Text = "die human6";
+            }
+           
         }
     }
 }

@@ -55,6 +55,10 @@ namespace TvSet
                 SelectedCanvasObject.Height += 5;
                 SelectedCanvasObject.Width += 5;
             }
+            else if (e.Key == Key.Delete)
+			{
+                World.Children.Remove(SelectedCanvasObject as UIElement);
+            }
         }          
     }
 }

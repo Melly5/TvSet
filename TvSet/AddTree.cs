@@ -1,13 +1,10 @@
 ﻿using System;
-
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using System.Text;
 namespace TvSet
 {
     public partial class MainWindow : Window
@@ -49,9 +46,9 @@ namespace TvSet
                     _newTree.Width = _newTree.ActualWidth + 140;
                     break;
             }
-
+     
             _newTree.Fill = treeImage;
-
+            _newTree.Tag = ind-1;
             _newTree.MouseDown += Rectangle_OnMouseDown;
  
             Canvas.SetTop(_newTree, rand.Next(30, 300));
@@ -61,13 +58,6 @@ namespace TvSet
 
 
 
-		private void Click_Tree(object sender, RoutedEventArgs e)
-        {
-            if (_selectedItem == null)
-                return;
-
-            int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddTree(index));
-        }
+		
     }
 }
