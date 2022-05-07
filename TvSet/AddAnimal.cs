@@ -15,6 +15,8 @@ namespace TvSet
 
         public Rectangle AddAnimal(int ind)
         {
+            count++;
+            CountObjects = count.ToString();
             ImageBrush animalImage = new ImageBrush();
             _newAnimal = new Rectangle();
             switch (ind)
@@ -49,8 +51,8 @@ namespace TvSet
             _newAnimal.Tag = ind - 1;
             _newAnimal.MouseDown += Rectangle_OnMouseDown;
 
-            Canvas.SetTop(_newAnimal, rand.Next(40, 150));
-            Canvas.SetLeft(_newAnimal, rand.Next(30, 300));
+            Canvas.SetTop(_newAnimal, rand.Next(180, 380));
+            Canvas.SetLeft(_newAnimal, rand.Next(20, 520));
             return _newAnimal;           
         }
 

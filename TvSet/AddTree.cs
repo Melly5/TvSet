@@ -14,6 +14,7 @@ namespace TvSet
 
         public Rectangle AddTree(int ind)
         {
+            count++;
             ImageBrush treeImage = new ImageBrush();
             _newTree = new Rectangle();
             switch (ind)
@@ -51,8 +52,8 @@ namespace TvSet
             _newTree.Tag = ind-1;
             _newTree.MouseDown += Rectangle_OnMouseDown;
  
-            Canvas.SetTop(_newTree, rand.Next(30, 300));
-            Canvas.SetLeft(_newTree, rand.Next(30, 500));
+            Canvas.SetTop(_newTree, rand.Next(170, 350));
+            Canvas.SetLeft(_newTree, rand.Next(20, 520));
             return _newTree;
         }
 

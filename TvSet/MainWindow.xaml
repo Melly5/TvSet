@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TvSet"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1500"
-        KeyDown="KeyisDown" MouseMove="Window_MouseMove" MouseDown="Window_MouseDown">
+        KeyDown="KeyisDown" MouseMove="Window_MouseMove" MouseDown="Window_MouseDown" >
     <Window.Resources>
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
@@ -190,77 +190,92 @@
                 <ColumnDefinition Width="27"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="16*" />
+                <RowDefinition Height="317*"/>
+                <RowDefinition Height="381*"/>
+                <RowDefinition Height="86*" />
             </Grid.RowDefinitions>
-            <GroupBox Name="InfoGrid"  Grid.Column="1" HorizontalAlignment="Left" Height="258" Margin="0,17,0,0" Grid.Row="1"  Width="362" BorderBrush="{x:Null}" Background="#FFD2B59B" Foreground="{x:Null}">
+            <GroupBox Name="InfoGrid"  Grid.Column="1" HorizontalAlignment="Left" Margin="0,23,0,6" Grid.Row="1"  Width="362" BorderBrush="{x:Null}" Background="#FFD2B59B" Foreground="{x:Null}" FontWeight="Bold" FontSize="14" FontFamily="Bahnschrift SemiLight">
                 <GroupBox.Header>
                     <TextBlock FontSize="18" FontWeight="Bold" Text="Информация об объекте" Foreground="#FF7B624C"/>
                 </GroupBox.Header>
-                <StackPanel>
-                    <Rectangle x:Name = "Condition" Fill="AliceBlue" Margin="0,20,0,0"  Height="20" Width="120"/>
-                    <TextBlock x:Name = "Condition_text" Text = "condition" Margin="0,20,0,0" Width="264" Foreground="Black" />
-                    <TextBlock x:Name = "kind" Text = "kind" Margin="0,20,0,0" Width="264" Foreground="Black" />
-                    <TextBlock x:Name = "tbout" Margin="0,20,0,0"  Height="45"  TextWrapping="Wrap" Text="information"  Width="264" Foreground="Black"/>
-                    <Button x:Name="Delete" Click="DeleteObject"  Content="Удалить" Height="40" Width="76">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
-                        </Button.Background>
-                    </Button>
+                <StackPanel VerticalAlignment="Center" Height="290">
+                    <Rectangle x:Name = "Condition" Fill="AliceBlue" Height="20" Width="180"/>
+                    <TextBlock x:Name = "Condition_text" Text = "condition" TextAlignment="Center" Margin="0,20,0,0" Width="290" Foreground="Black" />
+                    <TextBlock x:Name = "kind" Text = "kind" Margin="0,20,0,0" Width="290" Foreground="Black" />
+                    <TextBlock x:Name = "information" Margin="0,20,0,10"  Height="125"  TextWrapping="Wrap" Text="information"  Width="290" FontSize="15" Foreground="Black"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="Move" Click="Move_Object"  Content="Переместить" Height="40" Width="100" Foreground="#FFFAE2E2" Margin="0,0,20,0" FontFamily="Microsoft YaHei Light">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="Delete" Click="DeleteObject"  Content="Удалить" Height="40" Width="100" Foreground="#FFF9E6E6" Margin="21,0,0,0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+
                 </StackPanel>
             </GroupBox>
+            <TextBlock Grid.Column="1" Name="myTextBlock" Text="{Binding CountObjects}"  HorizontalAlignment="Left" Height="37" Margin="51,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="114"/>
 
         </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3.544"/>
-                <ColumnDefinition Width="16*"/>
-                <ColumnDefinition Width="183*"/>
-                <ColumnDefinition Width="183*"/>
-                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="29*"/>
+                <ColumnDefinition Width="681*"/>
+                <ColumnDefinition Width="19*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="53*"/>
-                <RowDefinition Height="116*"/>
-                <RowDefinition Height="124*"/>
-                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*"/>
+                <RowDefinition Height="507*"/>
+                <RowDefinition Height="72*" />
+                <RowDefinition Height="114*"/>
             </Grid.RowDefinitions>
-            <Canvas x:Name ="World"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="490" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="674">
-
-
-            </Canvas>
+            <Canvas x:Name ="World"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="490" VerticalAlignment="Center" Width="674" Margin="8,0,0,0"/>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="64.837"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="114*"/>
-                <RowDefinition Height="62*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="48*"/>
+                <RowDefinition Height="28*"/>
                 <RowDefinition Height="56*"/>
-                <RowDefinition Height="58*"/>
-                <RowDefinition Height="59*"/>
-                <RowDefinition Height="201*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="52*"/>
 
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="83*"/>
-                <RowDefinition Height="141*" />
+                <RowDefinition Height="82*"/>
+                <RowDefinition Height="140*"/>
+                <RowDefinition Height="3*"/>
+
+
+
             </Grid.RowDefinitions>
-            <Slider Name="Temperature" Minimum="-20" Maximum="45" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="15" Margin="62,16,0,0" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Temperature_ValueChanged" />
-            <TextBox Name="Temp_text" FontSize="8" Text="{Binding ElementName=Temperature, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="221,16,0,21" TextWrapping="Wrap" TextAlignment="Center"  Width="28" Grid.Row="1" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
+            <Slider Name="Temperature" Minimum="-20" Maximum="45" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="153" Height="15" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Temperature_ValueChanged" />
+            <TextBox Name="Temp_text" FontSize="8" Text="{Binding ElementName=Temperature, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  Margin="211,10,25,13" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
 
-            <Slider Name="Humidity" Minimum="0" Maximum="100" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Bottom" Width="153" Height="15" Margin="62,0,0,28" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Humidity_ValueChanged" />
-            <TextBox Name="Hum_text" FontSize="8" Text="{Binding ElementName=Humidity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="220,10,0,24" TextWrapping="Wrap" TextAlignment="Center"  Width="24" Grid.Row="2" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
+            <Slider Name="Humidity" Minimum="0" Maximum="100" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Width="153" Height="15" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Humidity_ValueChanged" Margin="0,12,0,0" />
+            <TextBox Name="Hum_text" FontSize="8" Text="{Binding ElementName=Humidity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="211,6,0,15" TextWrapping="Wrap" TextAlignment="Center"  Width="28" Grid.Row="3" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
 
-            <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,0,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Center" Width="116" Fill="Black"/>
-            <ComboBox Name="Trees" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBox_SelectionChanged" Margin="24,7,120,10"  >
+            <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,0,0,0" Grid.Row="4" Stroke="Black" VerticalAlignment="Center" Width="116" Fill="Black"/>
+            <ComboBox Name="Trees" Grid.Column="1" Grid.Row="5" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" Height="42" Margin="24,0,85,0"  >
                 <ComboBoxItem x:Name="tree1" TabIndex="0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/Trees/tree1.png"  Width="25" Height="25"/>
-                        <TextBlock FontWeight="ExtraBold" Foreground="#FF76563E" VerticalAlignment="Center">Пихта</TextBlock>
+                        <TextBlock x:Name="tree" Text="Пихта"  FontWeight="ExtraBold" Foreground="#FF76563E" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem x:Name="tree2" TabIndex="1">
@@ -288,12 +303,12 @@
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
-            <Button x:Name="Tree" Content="Tree"  Height="36" Click ="Click_bird" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="190,5,57,0" Grid.Column="1" Grid.Row="3">
+            <Button x:Name="Tree" Content="Tree"  Height="36" Click ="Click_bird" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="7">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <ComboBox Name="Birds" Grid.Column="1" Grid.Row="3" SelectionChanged="ComboBox_SelectionChanged" Margin="24,5,120,15" >
+            <ComboBox Name="Birds" Grid.Column="1" Grid.Row="7" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" Margin="24,0,85,0"  Height="42">
                 <ComboBoxItem x:Name="bird1" TabIndex="0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/Birds/bird1.png"  Width="25" Height="25"/>
@@ -326,7 +341,7 @@
                 </ComboBoxItem>
             </ComboBox>
 
-            <ComboBox x:Name="Animals" Grid.Column="1" Grid.Row="5" SelectionChanged="ComboBox_SelectionChanged" Margin="39,46,120,113"  >
+            <ComboBox x:Name="Animals" Grid.Column="1" Grid.Row="9" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" Height="42" Margin="24,0,85,0"   >
                 <ComboBoxItem x:Name="animal1" TabIndex="0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/Animals/animal1.png"  Width="25" Height="25"/>
@@ -358,19 +373,24 @@
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
-            <Button Click="Close"  Grid.Column="1" HorizontalAlignment="Center" Height="52" Grid.Row="7" VerticalAlignment="Center" Width="89">
+            <Button Click="Close"  Grid.Column="1"  Height="52" Grid.Row="13" VerticalAlignment="Center" Margin="92,0,86,0" >
                 <Button.Background>
                     <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
                 </Button.Background>
             </Button>
-            <Button Content="Tree"  Height="36" Click ="Click_tree" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="190,10,57,0" Grid.Column="1" Grid.Row="4">
+            <Button Content="Tree"  Height="36" Click ="Click_tree" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="5">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="Tree_Copy1" Content="Tree"  Height="36" Click ="Click_animal" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Top" Margin="190,48,57,0" Grid.Column="1" Grid.Row="5">
+            <Button x:Name="Tree_Copy1" Content="Tree"  Height="36" Click ="Click_animal" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="9" >
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
+                </Button.Background>
+            </Button>
+            <Button Click="DeleteAll"  Grid.Column="1"  Height="34" Grid.Row="12" VerticalAlignment="Top" Margin="73,8,129,0" >
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
                 </Button.Background>
             </Button>
         </Grid>

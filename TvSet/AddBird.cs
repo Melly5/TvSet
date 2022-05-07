@@ -14,6 +14,7 @@ namespace TvSet
         
         public Rectangle AddBird(int ind)
         {
+            count++;
             ImageBrush birdImage = new ImageBrush();
             _newBird = new Rectangle();
             switch (ind)
@@ -49,8 +50,8 @@ namespace TvSet
             _newBird.Tag = ind - 1;
             _newBird.MouseDown += Rectangle_OnMouseDown;
 
-            Canvas.SetTop(_newBird, rand.Next(40, 150));
-            Canvas.SetLeft(_newBird, rand.Next(30, 300));
+            Canvas.SetTop(_newBird, rand.Next(30, 180));
+            Canvas.SetLeft(_newBird, rand.Next(30, 540));
             return _newBird;
 
         }

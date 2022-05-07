@@ -33,21 +33,21 @@ namespace TvSet
                 return;
 
             int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddTree(index));
-            
+            World.Children.Add(AddTree(index));            
         }
         private void Click_bird(object sender, RoutedEventArgs e)
         {
             if (_selectedItem == null)
                 return;
+
             int index = _selectedItem.TabIndex + 1;
             World.Children.Add(AddBird(index));
-
         }
         private void Click_animal(object sender, RoutedEventArgs e)
         {
             if (_selectedItem == null)
                 return;
+
             int index = _selectedItem.TabIndex + 1;
             World.Children.Add(AddAnimal(index));
         }
@@ -64,9 +64,9 @@ namespace TvSet
                     SelectedCanvasObject.Effect = null;
                 }
                 SelectedCanvasObject = mouseWasDownOn;
-        
-                kind.Text = NameTree[(int)SelectedCanvasObject.Tag];
-
+                kind.Text = count.ToString();
+                //kind.Text = Kind[0,(int)SelectedCanvasObject.Tag];
+                information.Text= Information[0, (int)SelectedCanvasObject.Tag];
                 InfoGrid.Visibility = Visibility.Visible;
                 effect.Color = Colors.Red;
                 effect.Direction = -50;
@@ -79,10 +79,30 @@ namespace TvSet
         private void DeleteObject(object sender, RoutedEventArgs e)
         {
             World.Children.Remove(SelectedCanvasObject as UIElement);
+            count--;
+          
+
+        }
+        private void DeleteAll(object sender, RoutedEventArgs e)
+        {
+            World.Children.Clear();
+            count = 0;
+        
+
         }
         private void Close(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
+        }
+        private void Temperature_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            temp = (int)Temperature.Value;
+            Check_condition(temp, hum);
+        }
+        private void Humidity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            hum = (int)Humidity.Value;
+            Check_condition(temp, hum);
         }
     }
 }
