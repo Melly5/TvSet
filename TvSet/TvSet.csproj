@@ -73,9 +73,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ChangeValue.cs" />
     <Compile Include="Click.cs" />
     <Compile Include="Condition.cs" />
-    <Compile Include="Data.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="Edit.cs" />
     <Compile Include="Movement.cs" />
@@ -127,16 +127,15 @@
     <Resource Include="Images\Animals\animal3.png" />
     <Resource Include="Images\Animals\animal4.png" />
     <Resource Include="Images\Animals\animal5.png" />
-    <Resource Include="Images\Back\Back.png" />
+    <Resource Include="Images\Back\Background.png" />
+    <Resource Include="Images\Buttons\DelAll.png" />
+    <Resource Include="Images\Buttons\DeleteB.png" />
+    <Resource Include="Images\Buttons\MoveB.png" />
     <Content Include="Sounds\meow.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\AddB.png" />
     <Resource Include="Images\Buttons\CloseB.png" />
-    <Resource Include="Images\Buttons\EditB.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Back\B_add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

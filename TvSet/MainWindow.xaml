@@ -1,4 +1,5 @@
 ﻿<Window x:Class="TvSet.MainWindow"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +7,7 @@
         xmlns:local="clr-namespace:TvSet"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1500"
-        KeyDown="KeyisDown" MouseMove="Window_MouseMove" MouseDown="Window_MouseDown" >
+        KeyDown="KeyisDown" MouseMove="Window_MouseMove" MouseDown="Window_MouseDown">
     <Window.Resources>
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
@@ -37,20 +38,6 @@
                   Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z" Height="8" Width="12" Stretch="Fill" Margin="6,0,0,0"
                 />
             </Grid>
-            <!--<ControlTemplate.Triggers>
-            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
-                <Setter TargetName="Border" Property="Background" Value="#808080" />
-            </Trigger>
-            <Trigger Property="ToggleButton.IsChecked" Value="true">
-                <Setter TargetName="Border" Property="Background" Value="#E0E0E0" />
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter TargetName="Border" Property="Background" Value="#EEEEEE" />
-                <Setter TargetName="Border" Property="BorderBrush" Value="#AAAAAA" />
-                <Setter Property="Foreground" Value="#888888"/>
-                <Setter TargetName="Arrow" Property="Fill" Value="#888888" />
-            </Trigger>
-        </ControlTemplate.Triggers>-->
         </ControlTemplate>
 
         <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
@@ -176,7 +163,7 @@
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Back/Back.png"/>
+            <ImageBrush ImageSource="/Images/Back/Background.png"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.2*"/>
@@ -196,29 +183,37 @@
             </Grid.RowDefinitions>
             <GroupBox Name="InfoGrid"  Grid.Column="1" HorizontalAlignment="Left" Margin="0,23,0,6" Grid.Row="1"  Width="362" BorderBrush="{x:Null}" Background="#FFD2B59B" Foreground="{x:Null}" FontWeight="Bold" FontSize="14" FontFamily="Bahnschrift SemiLight">
                 <GroupBox.Header>
-                    <TextBlock FontSize="18" FontWeight="Bold" Text="Информация об объекте" Foreground="#FF7B624C"/>
+                    <TextBlock FontSize="20" FontWeight="ExtraBold" Text="Информация об объекте" Foreground="#FF7B624C" FontFamily="Bahnschrift"/>
                 </GroupBox.Header>
-                <StackPanel VerticalAlignment="Center" Height="290">
-                    <Rectangle x:Name = "Condition" Fill="AliceBlue" Height="20" Width="180"/>
-                    <TextBlock x:Name = "Condition_text" Text = "condition" TextAlignment="Center" Margin="0,20,0,0" Width="290" Foreground="Black" />
-                    <TextBlock x:Name = "kind" Text = "kind" Margin="0,20,0,0" Width="290" Foreground="Black" />
-                    <TextBlock x:Name = "information" Margin="0,20,0,10"  Height="125"  TextWrapping="Wrap" Text="information"  Width="290" FontSize="15" Foreground="Black"/>
+                <StackPanel VerticalAlignment="Center" Height="306">
+                    <Rectangle x:Name = "Condition" Fill="#FF3BDD25" Margin="0,12,0,0" Height="25" Width="180" RadiusX="7" RadiusY="7"/>
+                    <TextBlock x:Name = "Condition_text" Text = "Измените значения слайдеров" TextAlignment="Center" Margin="0,20,0,0" Width="290" Foreground="#FF7B624C" FontSize="18" />
+                    <TextBlock x:Name = "kind" Text = "Вид объекта" Margin="0,20,0,0" Width="290" Foreground="#FF7B624C" FontSize="22" TextAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift" />
+                    <TextBlock x:Name = "information" Margin="0,20,0,10"  Height="99"  TextWrapping="Wrap" Text="Информация об объекте"  Width="290" FontSize="15" Foreground="#FF7B624C"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="Move" Click="Move_Object"  Content="Переместить" Height="40" Width="100" Foreground="#FFFAE2E2" Margin="0,0,20,0" FontFamily="Microsoft YaHei Light">
+                        <Button x:Name="Move" Click="Move_Object"   Height="40" Width="100" Foreground="#FFFAE2E2" Margin="0,0,20,0" FontFamily="Microsoft YaHei Light">
                             <Button.Background>
-                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                                <ImageBrush ImageSource="/Images/Buttons/MoveB.png"/>
                             </Button.Background>
                         </Button>
-                        <Button x:Name="Delete" Click="DeleteObject"  Content="Удалить" Height="40" Width="100" Foreground="#FFF9E6E6" Margin="21,0,0,0">
+                        <Button x:Name="Delete" Click="DeleteObject"   Height="40" Width="100" Foreground="#FFF9E6E6">
                             <Button.Background>
-                                <ImageBrush ImageSource="/Images/Buttons/AddB.png"/>
+                                <ImageBrush ImageSource="/Images/Buttons/DeleteB.png"/>
                             </Button.Background>
                         </Button>
                     </StackPanel>
 
                 </StackPanel>
             </GroupBox>
-            <TextBlock Grid.Column="1" Name="myTextBlock" Text="{Binding CountObjects}"  HorizontalAlignment="Left" Height="37" Margin="51,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="114"/>
+            <TextBlock Grid.Column="1" TextAlignment="Center" Height="40" Margin="22,24,49,253" TextWrapping="Wrap" Text="УСЛОВИЯ ОБИТАНИЯ" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="30" Foreground="#FF59412B">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#FFD6AF90" Opacity="50" BlurRadius="20"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock x:Name="Temp_text" FontSize="22" Text="{Binding CountTemp}" Grid.Column="1"  Margin="64,112,260,174" TextWrapping="Wrap" TextAlignment="Center" Foreground="#FF59412B" FontFamily="Bahnschrift" />
+            <TextBlock x:Name="Hum_text" FontSize="22" Text="{Binding CountHum}" Grid.Column="1" Margin="250,112,74,174" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Bahnschrift" Foreground="#FF59412B"/>
+            <TextBlock Grid.Column="1" TextAlignment="Center" Margin="3,78,199,213" TextWrapping="Wrap" Text="ТЕМПЕРАТУРА" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="24" Foreground="#FF59412B"/>
+            <TextBlock Grid.Column="1" TextAlignment="Center" Margin="198,78,22,213" TextWrapping="Wrap" Text="ВЛАЖНОСТЬ" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="24" Foreground="#FF59412B"/>
 
         </Grid>
         <Grid Grid.Column="1">
@@ -234,7 +229,12 @@
                 <RowDefinition Height="72*" />
                 <RowDefinition Height="114*"/>
             </Grid.RowDefinitions>
-            <Canvas x:Name ="World"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="490" VerticalAlignment="Center" Width="674" Margin="8,0,0,0"/>
+            <Canvas x:Name ="World"  Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Left" Height="490" VerticalAlignment="Center" Width="674" Margin="8,0,0,0"/>
+            <TextBlock Name ="Hint" Grid.Column="2" TextAlignment="Center" HorizontalAlignment="Center" Height="94" Grid.Row="3" TextWrapping="Wrap" Text="Подсказки" VerticalAlignment="Center" Width="647" Foreground="#FFF31010" FontSize="32" FontWeight="Bold" FontFamily="Bahnschrift">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -244,8 +244,8 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="114*"/>
-                <RowDefinition Height="49*"/>
-                <RowDefinition Height="12*"/>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="15*"/>
                 <RowDefinition Height="48*"/>
                 <RowDefinition Height="28*"/>
                 <RowDefinition Height="56*"/>
@@ -253,9 +253,9 @@
                 <RowDefinition Height="56*"/>
                 <RowDefinition Height="17*"/>
                 <RowDefinition Height="56*"/>
-                <RowDefinition Height="23*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="52*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="89*"/>
 
                 <RowDefinition Height="82*"/>
                 <RowDefinition Height="140*"/>
@@ -264,11 +264,9 @@
 
 
             </Grid.RowDefinitions>
-            <Slider Name="Temperature" Minimum="-20" Maximum="45" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="153" Height="15" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Temperature_ValueChanged" />
-            <TextBox Name="Temp_text" FontSize="8" Text="{Binding ElementName=Temperature, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  Margin="211,10,25,13" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
+            <Slider Name="Temperature" Minimum="-50" Maximum="50"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="153" Height="15" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Temperature_ValueChanged" />
 
             <Slider Name="Humidity" Minimum="0" Maximum="100" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Width="153" Height="15" IsSnapToTickEnabled="True" ToolTipService.ToolTip="{Binding Path=Value, ElementName=slider}" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="Humidity_ValueChanged" Margin="0,12,0,0" />
-            <TextBox Name="Hum_text" FontSize="8" Text="{Binding ElementName=Humidity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="211,6,0,15" TextWrapping="Wrap" TextAlignment="Center"  Width="28" Grid.Row="3" RenderTransformOrigin="0.532,0.494" Background="#FFE5CDB7" BorderBrush="#FFBC9F85"/>
 
             <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="64,0,0,0" Grid.Row="4" Stroke="Black" VerticalAlignment="Center" Width="116" Fill="Black"/>
             <ComboBox Name="Trees" Grid.Column="1" Grid.Row="5" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" Height="42" Margin="24,0,85,0"  >
@@ -303,7 +301,7 @@
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
-            <Button x:Name="Tree" Content="Tree"  Height="36" Click ="Click_bird" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="7">
+            <Button x:Name="Tree" Content="Tree"  Height="34" Click ="Click_bird" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="7">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
                 </Button.Background>
@@ -378,21 +376,23 @@
                     <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
                 </Button.Background>
             </Button>
-            <Button Content="Tree"  Height="36" Click ="Click_tree" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="5">
+            <Button Content="Tree"  Height="34" Click ="Click_tree" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="5">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="Tree_Copy1" Content="Tree"  Height="36" Click ="Click_animal" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="9" >
+            <Button x:Name="Tree_Copy1" Content="Tree"  Height="34" Click ="Click_animal" BorderBrush="{x:Null}" Foreground="{x:Null}" VerticalAlignment="Center" Margin="195,0,25,0" Grid.Column="1" Grid.Row="9" >
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Buttons/AddB.png" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button Click="DeleteAll"  Grid.Column="1"  Height="34" Grid.Row="12" VerticalAlignment="Top" Margin="73,8,129,0" >
-                <Button.Background>
-                    <ImageBrush  ImageSource="/Images/Buttons/CloseB.png"/>
-                </Button.Background>
-            </Button>
+            <TextBlock Grid.Column="1" x:Name="myTextBlock" Text="{Binding CountObjects}" TextAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="72,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="52" Grid.Row="12" FontSize="22" FontFamily="Bahnschrift" Foreground="#FF2C190C" FontWeight="Bold"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="24,5,0,0" Grid.Row="12" TextWrapping="Wrap" Text="Всего объектов:" VerticalAlignment="Top" Width="164" FontSize="20" FontFamily="Bahnschrift" Foreground="#FF2C190C" FontWeight="Bold"/>
+            <Ellipse Name="Delete_All"  Grid.Column="1" MouseDown="DeleteAll" HorizontalAlignment="Left" Height="39" Margin="193,0,0,0" Grid.Row="12" VerticalAlignment="Center" Width="39">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Images/Buttons/DelAll.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
         </Grid>
     </Grid>
 </Window>

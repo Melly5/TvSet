@@ -13,32 +13,22 @@ namespace TvSet
 	public partial class MainWindow : Window, INotifyPropertyChanged
 	{
 		static Random rand = new Random();
-		int temp, hum;
-		int count = 0;
+		private int temp = 0, hum = 0;
+		private int count = 0;
 		private static FrameworkElement SelectedCanvasObject;
+
 		public MainWindow()
 		{
 			InitializeComponent();
 			InfoGrid.Visibility = Visibility.Hidden;
-		
-		}
+			Delete_All.Visibility = Visibility.Hidden;
+			Hint.Visibility = Visibility.Hidden;
+			CountObjects = count.ToString();
+			CountHum = hum.ToString();
+			CountTemp = temp.ToString();
 
-
-		private string count_obj;
-		public string CountObjects
-		{
-			get => count_obj; set
-			{
-				count_obj = value;
-
-				OnPropertyChanged("CountObjects");
-			}
-		}
-		public event PropertyChangedEventHandler PropertyChanged;
-		public void OnPropertyChanged([CallerMemberName] string prop = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
 		}
 
 	}
+
 }

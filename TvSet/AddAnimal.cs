@@ -10,12 +10,10 @@ namespace TvSet
 {
     public partial class MainWindow : Window
     {
-  
         private Rectangle _newAnimal;
-
         public Rectangle AddAnimal(int ind)
         {
-            count++;
+            count++;        
             CountObjects = count.ToString();
             ImageBrush animalImage = new ImageBrush();
             _newAnimal = new Rectangle();
@@ -50,7 +48,7 @@ namespace TvSet
             _newAnimal.Fill = animalImage;
             _newAnimal.Tag = ind - 1;
             _newAnimal.MouseDown += Rectangle_OnMouseDown;
-
+            _newAnimal.Name = "Animal";
             Canvas.SetTop(_newAnimal, rand.Next(180, 380));
             Canvas.SetLeft(_newAnimal, rand.Next(20, 520));
             return _newAnimal;           

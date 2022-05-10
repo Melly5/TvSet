@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,6 +16,7 @@ namespace TvSet
         public Rectangle AddTree(int ind)
         {
             count++;
+            CountObjects = count.ToString();
             ImageBrush treeImage = new ImageBrush();
             _newTree = new Rectangle();
             switch (ind)
@@ -47,9 +49,10 @@ namespace TvSet
                     _newTree.Width = _newTree.ActualWidth + 140;
                     break;
             }
-     
+            _newTree.Name = "Tree";
             _newTree.Fill = treeImage;
-            _newTree.Tag = ind-1;
+            _newTree.Tag = ind-1;        
+
             _newTree.MouseDown += Rectangle_OnMouseDown;
  
             Canvas.SetTop(_newTree, rand.Next(170, 350));
