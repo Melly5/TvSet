@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -20,6 +19,7 @@ namespace TvSet
 				Check();
 			}
 		}
+		//проверка на количество объектов
 		public void Check()
 		{
 			if (count > 0)

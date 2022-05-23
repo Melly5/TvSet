@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TvSet"
         mc:Ignorable="d"
+        x:Name="main"
         Title="MainWindow" Height="800" Width="1500"
         KeyDown="KeyisDown" MouseMove="Window_MouseMove" MouseDown="Window_MouseDown">
     <Window.Resources>
@@ -229,7 +230,7 @@
                 <RowDefinition Height="72*" />
                 <RowDefinition Height="114*"/>
             </Grid.RowDefinitions>
-            <Canvas x:Name ="World"  Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Left" Height="490" VerticalAlignment="Center" Width="674" Margin="8,0,0,0"/>
+            <Canvas x:Name ="World"  Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Center" Height="508" VerticalAlignment="Center" Width="663"/>
             <TextBlock Name ="Hint" Grid.Column="2" TextAlignment="Center" HorizontalAlignment="Center" Height="94" Grid.Row="3" TextWrapping="Wrap" Text="Подсказки" VerticalAlignment="Center" Width="647" Foreground="#FFF31010" FontSize="32" FontWeight="Bold" FontFamily="Bahnschrift">
                 <TextBlock.Effect>
                     <DropShadowEffect/>
@@ -393,6 +394,9 @@
                     <ImageBrush ImageSource="/Images/Buttons/DelAll.png"/>
                 </Ellipse.Fill>
             </Ellipse>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="34,9,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Деревья:" FontSize="16" FontFamily="Bahnschrift" Foreground="#FF2C190C" FontWeight="Bold" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="34,0,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Птицы:" FontSize="16" FontFamily="Bahnschrift" Foreground="#FF2C190C" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="34,0,0,0" Grid.Row="8" TextWrapping="Wrap" Text="Животные:" FontSize="16" FontFamily="Bahnschrift" Foreground="#FF2C190C" FontWeight="Bold" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>

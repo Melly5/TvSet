@@ -1,26 +1,16 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Shapes;
 
 namespace TvSet
 {
     public partial class MainWindow : Window
     {
-        /*MediaPlayer ClickSound = new MediaPlayer();
-
-        private void click_cat(object sender, RoutedEventArgs e)
-        {
-            ClickSound.Open(new Uri("/Sounds/meow.mp3", UriKind.Relative));
-            ClickSound.Play();
-        }
-        */
+        private ComboBoxItem _selectedItem;
         private string boxName;
-        DropShadowEffect effect = new DropShadowEffect();
-        
+        DropShadowEffect effect = new DropShadowEffect();        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -28,7 +18,6 @@ namespace TvSet
             _selectedItem = selectedItem;
             boxName = comboBox.Name;
         }
-
         //Добавление дерева
         private void Click_tree(object sender, RoutedEventArgs e)
         {
@@ -37,7 +26,8 @@ namespace TvSet
             if (count >= 35)              
                 return;
             int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddTree(index));            
+            Tree add = new Tree();
+            World.Children.Add(add.AddTree(index, this));            
         }
 
         //Добавление птицы
@@ -48,7 +38,8 @@ namespace TvSet
             if (count >= 35)
                 return;
             int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddBird(index));
+            Bird add = new Bird();
+            World.Children.Add(add.AddBird(index, this));
         }
 
         //Добавление животного
@@ -59,9 +50,11 @@ namespace TvSet
             if (count >= 35)
                 return;
             int index = _selectedItem.TabIndex + 1;
-            World.Children.Add(AddAnimal(index));
+            Animal add = new Animal();
+            World.Children.Add(add.AddAnimal(index, this));
         }
         //При нажатии на объект
+
         private void Rectangle_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             var mouseWasDownOn = e.Source as FrameworkElement;
@@ -101,39 +94,40 @@ namespace TvSet
 
             }
         }
-        //private void Unfocuse()
-        //{
-        //    if (SelectedCanvasObject != null)
-        //    {
-        //        SelectedCanvasObject.Effect = null;
-        //        SelectedCanvasObject = null;
 
-        //        Hint.Visibility = Visibility.Hidden;
-        //    }
-        //}
-
-            //Удаление одного выбранного объекта
-            private void DeleteObject(object sender, RoutedEventArgs e)
+        //Удаление одного выбранного объекта
+        private void DeleteObject(object sender, RoutedEventArgs e)
         {
+            DeleteOne();
+        }
+        private void DeleteOne()
+		{
             if (SelectedCanvasObject == null)
-			{
+            {
                 return;
-			}
-          
+            }
+            if (dead == 1)
+            {
+                Move.Visibility = Visibility.Visible;
+                dead = 0;
+            }
             World.Children.Remove(SelectedCanvasObject as UIElement);
             InfoGrid.Visibility = Visibility.Hidden;
             count--;
             CountObjects = count.ToString();
             SelectedCanvasObject = null;
         }
-        //Удаление всех объектов
-        private void DeleteAll(object sender, RoutedEventArgs e)
-        {
-
+        private void DeleteEveryone()
+		{
             World.Children.Clear();
             InfoGrid.Visibility = Visibility.Hidden;
             count = 0;
             CountObjects = count.ToString();
+        }
+        //Удаление всех объектов
+        private void DeleteAll(object sender, RoutedEventArgs e)
+        {
+            DeleteEveryone();
         }
         //Завершение работы приложения
         private void Close(object sender, RoutedEventArgs e)

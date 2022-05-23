@@ -1,19 +1,18 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Collections.Generic;
 
 namespace TvSet
 {
     public partial class MainWindow : Window
     {
         int ind;
+        int dead = 0;
         public void Check_condition(double temp, double hum)
         {
+            if (SelectedCanvasObject==null)
+			{
+                return;
+			}
             ind = (int)SelectedCanvasObject.Tag +1;
             if (SelectedCanvasObject.Name=="Tree")
 			{              
@@ -26,6 +25,7 @@ namespace TvSet
                             Condition_text.Text = "Это дерево мертво";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         else if (temp < -35 & hum > 15)
                         {
@@ -80,6 +80,7 @@ namespace TvSet
                             Condition_text.Text = "Ваше дерево мертво";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         else if (temp >= -2 & temp < 10 | temp < -2 & hum >= 55)
                         {
@@ -119,6 +120,7 @@ namespace TvSet
                             Condition_text.Text = "Ваше дерево мертво";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         else if (temp >= -25 & temp < 0 | temp < -25 & hum >= 55)
                         {
@@ -158,6 +160,7 @@ namespace TvSet
                             Condition_text.Text = "Ваше дерево мертво";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -25 & hum > 50)
                         {
@@ -203,6 +206,7 @@ namespace TvSet
                             Condition_text.Text = "Ваше дерево мертво";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -30 & hum > 55)
                         {
@@ -253,6 +257,7 @@ namespace TvSet
                             Condition_text.Text = "Птица мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -40 & hum > 50 | temp > 30 & temp < 40 & hum > 60)
                         {
@@ -297,6 +302,7 @@ namespace TvSet
                             Condition_text.Text = "Птица мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -35 & hum > 50)
                         {
@@ -342,6 +348,7 @@ namespace TvSet
                             Condition_text.Text = "Птица мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -45 & hum > 50)
                         {
@@ -388,6 +395,7 @@ namespace TvSet
                             Condition_text.Text = "Птица мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -45 & hum >= 65 | temp > 30 & hum <= 55)
                         {
@@ -428,6 +436,7 @@ namespace TvSet
                             Condition_text.Text = "Птица мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -40 & hum >= 65 | temp > 30 & hum <= 55)
                         {
@@ -478,6 +487,7 @@ namespace TvSet
                             Condition_text.Text = "Волк мертв";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp > 35 & hum <= 85)
                         {
@@ -518,6 +528,7 @@ namespace TvSet
                             Condition_text.Text = "Белка мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -45 & hum <= 55)
                         {
@@ -563,6 +574,7 @@ namespace TvSet
                             Condition_text.Text = "Лиса мертва";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -45 & hum <= 75)
                         {
@@ -608,6 +620,7 @@ namespace TvSet
                             Condition_text.Text = "Медведь мертв";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp < -47 & hum <= 25)
                         {
@@ -658,6 +671,7 @@ namespace TvSet
                             Condition_text.Text = "Зайчик мертв";
                             information.Text = "Удалите объект";
                             Move.Visibility = Visibility.Hidden;
+                            dead = 1;
                         }
                         if (temp > 35 & hum <= 75)
                         {

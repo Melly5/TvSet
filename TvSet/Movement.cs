@@ -1,13 +1,9 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Shapes;
-
 
 namespace TvSet
 {
-     
     public partial class MainWindow : Window
     {
         private int movement = 0;
@@ -22,11 +18,11 @@ namespace TvSet
 		private void Window_MouseMove(object sender, MouseEventArgs e)
 		{         
 			var p = e.GetPosition(World);
-			if (SelectedCanvasObject != null&&move_object==1)
+			if (SelectedCanvasObject != null && move_object==1)
 			{
 				var clampP = new Point(
-				Clamp(p.X - SelectedCanvasObject.Width / 2, 50, World.Width - 100),
-				Clamp(p.Y - SelectedCanvasObject.Height / 2, 50, World.Height - 100)
+				Clamp(p.X - SelectedCanvasObject.Width / 2, 5, World.Width - 50),
+				Clamp(p.Y - SelectedCanvasObject.Height / 2, 5, World.Height - 90)
 				);
 
 				Canvas.SetLeft(SelectedCanvasObject, clampP.X);
@@ -60,33 +56,25 @@ namespace TvSet
                 return;
             else if (e.Key == Key.OemMinus)
             {
+                if (SelectedCanvasObject.Height <= 5 | SelectedCanvasObject.Width <= 5)
+                    return;
                 SelectedCanvasObject.Height -= 5;
                 SelectedCanvasObject.Width -= 5;
             }
             else if (e.Key == Key.OemPlus)
             {
+                if (SelectedCanvasObject.Height >= 450 | SelectedCanvasObject.Width >= 450)
+                    return;
                 SelectedCanvasObject.Height += 5;
                 SelectedCanvasObject.Width += 5;
             }
             else if (e.Key == Key.Delete)
 			{
-                if (SelectedCanvasObject == null)
-				{
-                    return;
-				}
-
-                World.Children.Remove(SelectedCanvasObject as UIElement);
-                InfoGrid.Visibility = Visibility.Hidden;
-                SelectedCanvasObject = null;
-                count--;
-                CountObjects = count.ToString();
+                DeleteOne();
             }
             else if (e.Key == Key.Back)
 			{
-                World.Children.Clear();
-                InfoGrid.Visibility = Visibility.Hidden;
-                count = 0;
-                CountObjects = count.ToString();
+               DeleteEveryone();
             }
         }          
     }

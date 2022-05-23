@@ -2,7 +2,7 @@
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using System.Windows.Shapes;
 
 namespace TvSet
 {
@@ -20,6 +20,7 @@ namespace TvSet
 		public MainWindow()
 		{
 			InitializeComponent();
+			
 			InfoGrid.Visibility = Visibility.Hidden;
 			Delete_All.Visibility = Visibility.Hidden;
 			Hint.Visibility = Visibility.Hidden;
@@ -28,7 +29,19 @@ namespace TvSet
 			CountTemp = temp.ToString();
 
 		}
+		public void AddCount()
+		{
+			count++;
+			CountObjects = count.ToString();
+		}
+		public void AddAction(Rectangle obj)
+		{
+			obj.MouseDown += Rectangle_OnMouseDown;
+		}
+		public void Default()
+		{
 
+		}	
 	}
 
 }
