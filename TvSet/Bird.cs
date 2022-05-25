@@ -10,14 +10,11 @@ namespace TvSet
 {
     public class Bird
     {
-        private Rectangle _newBird;
+        
         static Random rand = new Random();
-        public Rectangle AddBird(int ind, MainWindow main)
+        public Rectangle AddBird(Rectangle _newBird,int ind)
         {
-            main.AddCount();
-
             ImageBrush birdImage = new ImageBrush();
-            _newBird = new Rectangle();
             switch (ind)
             {
                 case 1:
@@ -49,7 +46,6 @@ namespace TvSet
             _newBird.Name = "Bird";
             _newBird.Fill = birdImage;
             _newBird.Tag = ind - 1;
-            main.AddAction(_newBird);
 
             Canvas.SetTop(_newBird, rand.Next(30, 180));
             Canvas.SetLeft(_newBird, rand.Next(30, 540));

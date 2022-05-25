@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Windows.Shapes;
 
 namespace TvSet
 {
@@ -27,7 +28,9 @@ namespace TvSet
                 return;
             int index = _selectedItem.TabIndex + 1;
             Tree add = new Tree();
-            World.Children.Add(add.AddTree(index, this));            
+            Rectangle _newObj = new Rectangle();
+            World.Children.Add(add.AddTree(_newObj, index));
+            Action(_newObj);
         }
 
         //Добавление птицы
@@ -39,7 +42,9 @@ namespace TvSet
                 return;
             int index = _selectedItem.TabIndex + 1;
             Bird add = new Bird();
-            World.Children.Add(add.AddBird(index, this));
+            Rectangle _newObj = new Rectangle();
+            World.Children.Add(add.AddBird(_newObj, index));
+            Action(_newObj);
         }
 
         //Добавление животного
@@ -51,7 +56,9 @@ namespace TvSet
                 return;
             int index = _selectedItem.TabIndex + 1;
             Animal add = new Animal();
-            World.Children.Add(add.AddAnimal(index, this));
+            Rectangle _newObj = new Rectangle();
+            World.Children.Add(add.AddAnimal(_newObj, index));
+            Action(_newObj);
         }
         //При нажатии на объект
 

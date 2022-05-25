@@ -7,14 +7,11 @@ using System.Windows.Shapes;
 namespace TvSet
 {
     public class Animal
-    {
-        private Rectangle _newAnimal;
+    {       
         static Random rand = new Random();
 
-        public Rectangle AddAnimal(int ind, MainWindow main)
-        {
-            main.AddCount();
-
+        public Rectangle AddAnimal(Rectangle _newAnimal, int ind)
+        {         
             ImageBrush animalImage = new ImageBrush();
             _newAnimal = new Rectangle();
             switch (ind)
@@ -47,7 +44,6 @@ namespace TvSet
             }
             _newAnimal.Fill = animalImage;
             _newAnimal.Tag = ind - 1;
-            main.AddAction(_newAnimal);
             _newAnimal.Name = "Animal";
             Canvas.SetTop(_newAnimal, rand.Next(180, 380));
             Canvas.SetLeft(_newAnimal, rand.Next(20, 520));

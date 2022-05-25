@@ -8,11 +8,10 @@ namespace TvSet
 {
     public class Tree
     {
-        private Rectangle _newTree;
+
         static Random rand = new Random();
-        public Rectangle AddTree(int ind, MainWindow main)
+        public Rectangle AddTree(Rectangle _newTree, int ind)
         {
-            main.AddCount();
 
             ImageBrush treeImage = new ImageBrush();
             _newTree = new Rectangle();
@@ -49,7 +48,6 @@ namespace TvSet
             _newTree.Name = "Tree";
             _newTree.Fill = treeImage;
             _newTree.Tag = ind-1;
-            main.AddAction(_newTree); 
             Canvas.SetTop(_newTree, rand.Next(170, 350));
             Canvas.SetLeft(_newTree, rand.Next(20, 520));
             return _newTree;

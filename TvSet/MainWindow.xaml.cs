@@ -38,10 +38,12 @@ namespace TvSet
 		{
 			obj.MouseDown += Rectangle_OnMouseDown;
 		}
-		public void Default()
+		public void Action(Rectangle new1)
 		{
-
-		}	
+			
+			this.AddCount();
+			this.AddAction(new1);
+		}
 	}
 
 }
