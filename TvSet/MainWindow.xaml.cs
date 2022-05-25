@@ -2,7 +2,7 @@
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using System.Windows.Shapes;
 
 namespace TvSet
 {
@@ -13,32 +13,37 @@ namespace TvSet
 	public partial class MainWindow : Window, INotifyPropertyChanged
 	{
 		static Random rand = new Random();
-		int temp, hum;
-		int count = 0;
+		private int temp = 0, hum = 0;
+		private int count = 0;
 		private static FrameworkElement SelectedCanvasObject;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			
 			InfoGrid.Visibility = Visibility.Hidden;
-		
+			Delete_All.Visibility = Visibility.Hidden;
+			Hint.Visibility = Visibility.Hidden;
+			CountObjects = count.ToString();
+			CountHum = hum.ToString();
+			CountTemp = temp.ToString();
+
 		}
-
-
-		private string count_obj;
-		public string CountObjects
+		public void AddCount()
 		{
-			get => count_obj; set
-			{
-				count_obj = value;
-
-				OnPropertyChanged("CountObjects");
-			}
+			count++;
+			CountObjects = count.ToString();
 		}
-		public event PropertyChangedEventHandler PropertyChanged;
-		public void OnPropertyChanged([CallerMemberName] string prop = "")
+		public void AddAction(Rectangle obj)
 		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+			obj.MouseDown += Rectangle_OnMouseDown;
 		}
-
+		public void Action(Rectangle new1)
+		{
+			
+			this.AddCount();
+			this.AddAction(new1);
+		}
 	}
+
 }
