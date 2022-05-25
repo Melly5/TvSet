@@ -20,9 +20,10 @@ namespace TvSet
 			var p = e.GetPosition(World);
 			if (SelectedCanvasObject != null && move_object==1)
 			{
+                var clamp = new Clamp_Move();
 				var clampP = new Point(
-				Clamp(p.X - SelectedCanvasObject.Width / 2, 5, World.Width - 50),
-				Clamp(p.Y - SelectedCanvasObject.Height / 2, 5, World.Height - 90)
+				clamp.Clamp(p.X - SelectedCanvasObject.Width / 2, 5, World.Width - 50),
+				clamp.Clamp(p.Y - SelectedCanvasObject.Height / 2, 5, World.Height - 90)
 				);
 
 				Canvas.SetLeft(SelectedCanvasObject, clampP.X);
@@ -31,12 +32,7 @@ namespace TvSet
 			}
 		}
 
-		private double Clamp(double val, double min, double max)
-        {
-            if (val < min) return min;
-            if (val > max) return max;
-            return val;
-        }
+		
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

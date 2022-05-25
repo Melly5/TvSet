@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace TvSet
 {
@@ -40,9 +40,9 @@ namespace TvSet
 		}
 		public void Action(Rectangle new1)
 		{
-			
-			this.AddCount();
-			this.AddAction(new1);
+			count++;
+			CountObjects = count.ToString();
+			new1.MouseDown += Rectangle_OnMouseDown;						
 		}
 	}
 
