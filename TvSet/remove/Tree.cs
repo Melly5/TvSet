@@ -24,13 +24,11 @@ namespace TvSet
                     break;
                 case 2:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree2.png", UriKind.Relative));
-
                     _newTree.Height = 120;
                     _newTree.Width = 140;
                     break;
                 case 3:
                     treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree3.png", UriKind.Relative));
-
                     _newTree.Height = 150;
                     _newTree.Width = 120;
                     break;

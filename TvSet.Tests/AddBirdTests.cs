@@ -1,8 +1,5 @@
 using NUnit.Framework;
 using System.Windows.Shapes;
-using System.Windows;
-using System.Windows.Threading;
-using TvSet;
 using System.Threading;
 
 namespace TvSet.Tests
@@ -19,35 +16,63 @@ namespace TvSet.Tests
 
 		[Test]
 		[Apartment(ApartmentState.STA)]
-		public void CheckNameTest()
+		public void Add_Redpoll_Test()
 		{
 			Rectangle obj = new Rectangle();
-			var bird = new Bird();
-			int ind = 1;
-			var result = bird.AddBird(obj,ind);
-			StringAssert.Contains("Bird", result.Name);					
-		}
-		[Test]
-		[Apartment(ApartmentState.STA)]
-		public void CheckSizeTest()
-		{
-			Rectangle obj = new Rectangle();
-			var bird = new Bird();
-			int ind = 1;
-			var result = bird.AddBird(obj, ind);
+			var bird = new Redpoll();			
+			var result = bird.Add(obj);
+			StringAssert.Contains("Bird", result.Name);
 			Assert.AreEqual(60, result.Height);
 			Assert.AreEqual(60, result.Width);
+			Assert.AreEqual(0, result.Tag);
 		}
 		[Test]
 		[Apartment(ApartmentState.STA)]
-		public void CheckTagTest()
+		public void Add_BlueTit_Test()
 		{
 			Rectangle obj = new Rectangle();
-			var bird = new Bird();
-			int ind = 1;
-			var result = bird.AddBird(obj, ind);
-			Assert.AreEqual(0, result.Tag);
-			
+			var bird = new BlueTit();
+			var result = bird.Add(obj);
+			StringAssert.Contains("Bird", result.Name);
+			Assert.AreEqual(50, result.Height);
+			Assert.AreEqual(60, result.Width);
+			Assert.AreEqual(1, result.Tag);
+		}
+		[Test]
+		[Apartment(ApartmentState.STA)]
+		public void Add_Pigeon_Test()
+		{
+			Rectangle obj = new Rectangle();
+			var bird = new Pigeon();
+			var result = bird.Add(obj);
+			StringAssert.Contains("Bird", result.Name);
+			Assert.AreEqual(70, result.Height);
+			Assert.AreEqual(70, result.Width);
+			Assert.AreEqual(2, result.Tag);
+		}
+		[Test]
+		[Apartment(ApartmentState.STA)]
+		public void Add_Hummingbird_Test()
+		{
+			Rectangle obj = new Rectangle();
+			var bird = new Hummingbird();
+			var result = bird.Add(obj);
+			StringAssert.Contains("Bird", result.Name);
+			Assert.AreEqual(50, result.Height);
+			Assert.AreEqual(50, result.Width);
+			Assert.AreEqual(3, result.Tag);
+		}
+		[Test]
+		[Apartment(ApartmentState.STA)]
+		public void Add_Finch_Test()
+		{
+			Rectangle obj = new Rectangle();
+			var bird = new Finch();
+			var result = bird.Add(obj);
+			StringAssert.Contains("Bird", result.Name);
+			Assert.AreEqual(60, result.Height);
+			Assert.AreEqual(75, result.Width);
+			Assert.AreEqual(4, result.Tag);
 		}
 
 	}

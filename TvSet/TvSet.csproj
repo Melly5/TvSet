@@ -59,23 +59,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Actions\ActionClickAnimal.cs" />
+    <Compile Include="Actions\ActionClickTree.cs" />
+    <Compile Include="Animals\Wolf.cs" />
+    <Compile Include="Actions\ActionClickBird.cs" />
+    <Compile Include="Clamp_Move.cs" />
+    <Compile Include="Trees\Beech.cs" />
+    <Compile Include="Trees\DragonTree.cs" />
+    <Compile Include="Trees\Fir.cs" />
+    <Compile Include="Trees\Linden.cs" />
+    <Compile Include="Trees\Oak.cs" />
+    <Compile Include="Trees\Tree1.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="FirstBird.cs" />
-    <Compile Include="Tree.cs" />
+    <Compile Include="remove\Animal.cs" />
+    <Compile Include="Animals\Animal1.cs" />
+    <Compile Include="Animals\Bear.cs" />
+    <Compile Include="remove\Bird.cs" />
+    <Compile Include="Birds\Bird1.cs" />
+    <Compile Include="Birds\Redpoll.cs" />
+    <Compile Include="Birds\BlueTit.cs" />
+    <Compile Include="Birds\Finch.cs" />
+    <Compile Include="Birds\Hummingbird.cs" />
+    <Compile Include="Birds\Pigeon.cs" />
+    <Compile Include="Animals\Bunny.cs" />
+    <Compile Include="Animals\Fox.cs" />
+    <Compile Include="Animals\Squirrel.cs" />
+    <Compile Include="remove\Tree.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeValue.cs" />
-    <Compile Include="Click.cs" />
-    <Compile Include="Condition.cs" />
-    <Compile Include="Dictionary.cs" />
-    <Compile Include="Movement.cs" />
+    <Compile Include="Actions\ChangeValue.cs" />
+    <Compile Include="Actions\Click.cs" />
+    <Compile Include="Actions\Condition.cs" />
+    <Compile Include="Actions\Dictionary.cs" />
+    <Compile Include="Actions\Movement.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
