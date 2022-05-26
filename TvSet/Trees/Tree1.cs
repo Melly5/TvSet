@@ -10,5 +10,6 @@ namespace TvSet
 		public Rectangle Add(Rectangle _newBird) { return _newBird; }
 
 		public (string, Brush) CheckCondition() { return (_string, color); }
+		abstract public void Type();
 	}
 }

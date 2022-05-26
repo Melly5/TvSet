@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace TvSet
@@ -9,11 +7,12 @@ namespace TvSet
 	{
 		string _string;
         Brush color;
-		public new Rectangle Add(Rectangle _newAnimal)
+        public override void Type() { }
+        public new Rectangle Add(Rectangle _newAnimal)
 		{
             ImageBrush animalImage = new ImageBrush();
 
-            animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal1.png", UriKind.Relative));
+            animalImage.ImageSource = Images.GetImage("Animals.animal1.png");
             _newAnimal.Height = 80;
             _newAnimal.Width = 115;
             _newAnimal.Name = "Animal";

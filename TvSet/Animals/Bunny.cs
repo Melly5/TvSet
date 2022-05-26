@@ -9,12 +9,13 @@ namespace TvSet
 	{
 		string _string;
         Brush color;
+        public override void Type() { }
 
         public new Rectangle Add(Rectangle _newAnimal)
         {
             ImageBrush animalImage = new ImageBrush();
 
-            animalImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Animals/animal5.png", UriKind.Relative));
+            animalImage.ImageSource = Images.GetImage("Animals.animal5.png");
             _newAnimal.Height = 60;
             _newAnimal.Width = 80;
             _newAnimal.Name = "Animal";

@@ -9,12 +9,13 @@ namespace TvSet
 	{
         string _string;
         Brush color;
+        public override void Type() { }
 
         public new Rectangle Add(Rectangle _newTree)
         {
             ImageBrush treeImage = new ImageBrush();
 
-            treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree5.png", UriKind.Relative));
+            treeImage.ImageSource = Images.GetImage("Trees.tree5.png");
             _newTree.Height = 130;
             _newTree.Width = 140;
             _newTree.Name = "Tree";
@@ -31,7 +32,7 @@ namespace TvSet
                 _string = "Ваше дерево мертво";
 
             }
-            if (temp < -30 & hum > 55)
+            else if (temp < -30 & hum > 55)
             {
                 color = Brushes.OrangeRed;
                 _string = "Ваше дерево на грани гибели";

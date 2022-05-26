@@ -9,13 +9,14 @@ namespace TvSet
 	{
 		string _string;
         Brush color;
+        public override void Type() { }
 
-		public new Rectangle Add(Rectangle _newBird)
+        public new Rectangle Add(Rectangle _newBird)
 		{
 			ImageBrush birdImage = new ImageBrush();
 
-			birdImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Birds/bird5.png", UriKind.Relative));
-			_newBird.Height = 60;
+			birdImage.ImageSource = Images.GetImage("Birds.bird5.png");
+            _newBird.Height = 60;
 			_newBird.Width = 75;
 			_newBird.Name = "Bird";
 			_newBird.Fill = birdImage;

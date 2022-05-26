@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace TvSet
@@ -9,11 +7,12 @@ namespace TvSet
 	{
         string _string;
         Brush color;
+        public override void Type() { }
         public new Rectangle Add(Rectangle _newTree)
         {
             ImageBrush treeImage = new ImageBrush();
 
-            treeImage.ImageSource = new BitmapImage(new Uri("C:/Users/Melly/source/repos/TvSet/TvSet/Images/Trees/tree1.png", UriKind.Absolute));
+            treeImage.ImageSource = Images.GetImage("Trees.tree1.png");
             _newTree.Height = 120;
             _newTree.Width = 120;
             _newTree.Name = "Tree";
